@@ -2,6 +2,9 @@ angular.module('starter.controllers', [])
 
 .controller('ZhuantiCtrl', function($scope,guide,startA,zhuangtiSlide,$window,$timeout) {
 
+   document.getElementsByClassName("tab-item")[0].onclick=function(){
+   	swiper.slideTo(0)
+   }
 	if(!startA.get("start")){
 	
 	
