@@ -1,0 +1,145 @@
+<ion-view view-title="{{chat.name}}" hide-nav-bar="true" >
+	<style type="text/css">
+		.mine_header{
+			width: 100%;
+			height: 4.7rem;
+			background: url(img/user_img_bg.png);
+		}
+		.mine_icon{
+			width: 6.4rem;
+			height: 1rem;
+			float: left;
+		}
+		.col-15{
+			flex:0 0 15%;
+		}
+		.col-15 p{
+			line-height: 0.15rem;
+		}
+		.mine_bianji{
+			position: relative;
+			bottom: 0.4rem;
+			float: right;
+			color: #b7b7b9;
+			width: 2rem;
+			border-radius:0.4rem ;
+			height: 0.4rem;
+			font-size: 0.24rem;
+			background: #0d0d0f;
+		}
+		.row_mine .col{
+		
+			text-align: center;
+			padding: 0;
+			height: 1.24rem;
+			border-bottom:#dcdcdc 1px solid ;
+			border-right:#dcdcdc 1px solid ;
+		}
+		.row_mine .col img{
+			margin-top: 0.1rem;
+			width: 0.5rem;
+			height: 0.5rem;
+		}
+		.row_mine .col p{
+			font-size: 0.26rem;
+			
+		}
+	</style>
+  <ion-content >
+   <div class=" mine_header">
+   	
+   	<div style="height: 0.56rem;width: 100%;"></div>
+   	<div style="width: 100%;height: 1rem;">
+   	<div class="mine_icon">
+   		<img src="img/adam.jpg" style="border-radius:50% ;width: 1rem;height: 1rem;margin-left: 3.2rem;">
+   	</div>
+   	<div style="float: left;height: 1rem;width: 1rem;">
+   		<i class="icon ion-ios-chatbubble-outline light" style="float: right;margin-right: 0.36rem;font-size: 0.5rem;"></i>
+   	</div></div>
+   	<div style="text-align: center;">
+   		<span style="color: white;font-size: 0.36rem;">haha</span><i><img src="img/icn_male.png" style="width: 0.4rem;height: 0.4rem;position: relative;top: 0.04rem;"/></i>
+   	</div>
+   	<div style="height: 0.7rem;"></div>
+   	<div style="text-align: center;color: #858688;margin-bottom: 0.6rem;font-size: 0.24rem;">犹抱琵琶半遮面，千呼万唤始出来</div>
+   	
+   	<div class="row">
+   		<div class="col col-15 " style="margin-left: 5%;">
+   			<p style="color: white;">0</p>
+   			<p style="color: #8b8c8e;">关注</p>
+   		</div>
+   		<div  style="width: 0.03rem;height: 0.4rem;background: #8b8c8e;margin-right: 5%;position: relative;top: 0.15rem;"></div>
+   		<div class="col col-15">
+   			<p style="color: white;">0</p>
+   			<p style="color: #8b8c8e;">粉丝</p>
+   		</div>
+   		<div class="col">
+   			<button class="button icon-left ion-ios-compose-outline mine_bianji" >编辑资料</button>
+   		</div>
+   	</div>
+   </div>
+   <div style="height: 0.18rem;background: #f0f0f0;border-top:#d3d3d3 1px solid ;border-bottom:#d3d3d3 1px solid ;"></div>
+   <div>
+   	<div class="row row_mine" style="padding: 0;">
+   		<div class="col" >
+   			<img src="img/icn_order_small.png" />
+   			<p>我的订单</p>
+   		</div>
+   		<div class="col" >
+   			<img src="img/icn_cart_small.png"/>
+   			<p>购物车</p>
+   		</div>
+   		<div class="col" style="border-right:0 ;">
+   			<img src="img/icn_coupon_small.png" />
+   			<p>我的优惠券</p>
+   		</div>
+   	</div>
+   	<div class="row row_mine" style="padding: 0;">
+   			<div class="col" >
+   			<img src="img/icn_fav_small.png" />
+   			<p>喜欢的好物</p>
+   		</div>
+   		<div class="col" >
+   			<img src="img/icn_settle_small.png"/>
+   			<p>设计师入驻</p>
+   		</div>
+   		<div class="col" style="border-right:0 ;">
+   		
+   		</div>
+   	</div>
+   </div>
+   <div class="row" style="height: 0.78rem;background: #f0f0f0;border-bottom:1px solid #d6d6d6 ;">
+   	<div class="col" style="font-size:0.24rem ;color: #737373;">TA 说</div>
+   </div>
+   <div class="list" style="height: 0.8rem;border-bottom:1px solid #d6d6d6 ;">
+
+
+
+
+  <a class="item item-icon-left  item-icon-right" href="#">
+    <img class="icon" src="img/icn_myfav.png" style="width: 0.6rem;height: 0.6rem;margin-top:0.2rem ;"></img>
+  0 已喜欢
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+<div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
+</div>
+ <div class="list" style="box-sizing: border-box;">
+
+
+
+<div style="position: relative;top: 0.15rem;padding-left: 0.28rem;">
+  <a class="item item-icon-left  item-icon-right" href="#" style="border: none;border-bottom: 1px solid #d3d3d3;margin-bottom: 0.02rem;">
+    <img class="icon" src="img/icn_feedback.png" style="width: 0.6rem;height: 0.6rem;margin-top:0.2rem ;"></img>
+ 意见反馈
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+ <a class="item item-icon-left  item-icon-right" href="#" style="border: none;border-bottom: 1px solid #d3d3d3;">
+    <img class="icon" src="img/icn_settings.png" style="width: 0.6rem;height: 0.6rem;margin-top:0.2rem ;"></img>
+  设置
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+ </div>
+
+ </div>
+  <div style="height:1rem ;background: #f0f0f0;"></div>
+  </ion-content>
+</ion-view>

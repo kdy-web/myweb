@@ -1,0 +1,180 @@
+<ion-view view-title="Chats" hide-nav-bar="true">
+	<style type="text/css">
+		.row_chats{
+			position: relative;
+		}
+		.chat_header{
+			height: 1.25rem;
+			background: #242424;
+		}
+		.chat_header_bottom i{
+			font-size: 0.5rem;
+		
+		}
+		.col{
+			padding: 0;
+		}
+		.chat_header_bottom{
+		padding: 0;
+		}
+		.col-offset-5{
+			margin-left: 5%;
+		}
+		.togglechats{
+			font-size: 0.3rem;
+			color: #ffffff;
+		}
+		.col-15{
+			width: 15%;
+		}
+		.underline_chats{
+				width: 0.6rem;
+		height: 0.04rem;
+			background: #d0a421;
+			position: absolute;
+			left: 53.5%;
+			bottom: 28%;
+		}
+		.chat-icon i{
+			font-size: 0.5rem;
+		}
+		.col-29{
+-webkit-box-flex: 0;
+-webkit-flex: 0 0 29%;
+-moz-box-flex: 0;
+-moz-flex: 0 0 %29;
+-ms-flex: 0 0 29%;
+flex: 0 0 29%;
+		}
+		.col-offset-8{
+			margin-left:8% ;
+		}
+		.col-offset-6{
+			margin-left:6% ;
+		}
+		.attention_mid{
+			color: #767676;
+			text-indent: 0.2rem;
+			line-height:0.75rem ;r
+			height: 0.75rem;
+			background: #efefef;
+		}
+		.item_right{
+			padding-top: 0.2rem;
+		
+			float: left;
+			border-bottom:1px solid #dadada ;
+		}
+		.item_right h2{
+			font-size:0.32rem ;
+			color: #040404;
+		}
+		.item_right p{
+			font-size: 0.22rem;
+			color: #9f9f9f;
+		}
+		.attention_button{
+			border: 1px solid #b2b2b2;
+			font-size: 0.23rem;
+			width: 1.12rem;
+			height: 0.54rem;
+			float: right;
+			margin-right: 0.1rem;
+			color:#b2b2b2 ;
+			border-radius:0.1rem ;
+		}
+		.item-img{
+			width: 0.96rem;
+			height: 0.96rem;
+			border-radius:50% ;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.item_imgBox{
+			position: relative;
+		}
+		.attention_item{
+			height: 1.3rem;
+		}
+		.item_text{
+			width: 4rem;
+			float: left;
+		}
+		.search_list{
+			width: 4rem;
+			float: left;
+		}
+		.search_button{
+			padding-top:0.2rem ;
+			box-sizing: border-box;
+		}
+	</style>
+  <ion-content>
+    <div class="chat_header">
+    	<div style="width:100%;height: 0.5rem;"></div>
+    	<div class="row row_chats" style="width: 100%;height: 0.75rem;padding: 0;">
+ 
+    <div class="chat_header_bottom col col-10 col-offset-5" >
+    		<i class="ion-ios-search-strong  light" ></i>
+    		
+ </div>
+    	<div class="col col-30 togglechats" ng-click="changeTosearch()">
+    		<div ng-style="searchCss" style="text-align: right;">发现</div>
+    		
+    			</div>
+    	
+    	<div class="col-offset-8  col col-30 togglechats" ng-click="changeToattention()">
+    		<div ng-style="attentionCss" style="text-align: left;">关注</div>
+    		
+    	</div>
+    	<div class="col-offset-6 col col-10 chat-icon">
+    		
+    		<i class="icon ion-ios-chatbubble-outline light" style="float: right;margin-right: 0.36rem;"></i>
+    	</div>
+    	<div class="underline_chats"  >
+    </div>
+     </div>
+      </div>
+     <div ng-show="search" >
+     		 <div class="item item-avatar">
+    <img src="img/adam.jpg">
+    <div class="search_list">
+    	 <h2>Marty McFly</h2>
+    <p>November 05, 1955</p>
+    </div>
+   <div class="search_button">
+   	<button class="icon-left ion-android-add light-bg attention_button">关注</button></div>
+  </div>
+     <div class="padding" >
+     	原来被宠溺的女人，真的是一眼就会被望穿！
+     </div>
+     </div>
+     <div ng-show="attention" >
+     	<div class="row attention_mid" style="padding: 0;">
+     		关注感兴趣的设计师，及时了解他们的动态
+     	</div>
+     	<div class="list" >
+     		<div class="item row attention_item" style="border: none;">
+     	<div class="col col-20 item_imgBox"> <img class="item-img" src="img/adam.jpg"></div>
+   
+   
+    <div class="item_right col col-80">
+    	<div class="item_text">
+    <h2>Marty McFly</h2>
+    <p>November 05, 1955</p>
+    
+    </div> <button class="icon-left ion-android-add light-bg attention_button">关注</button>
+
+  </div>
+ 
+  
+     	</div>
+     	
+     </div>
+        </div>
+  </ion-content>
+</ion-view>

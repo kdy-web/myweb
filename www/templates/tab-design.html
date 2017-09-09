@@ -1,0 +1,97 @@
+<ion-view view-title="设计师" hide-nav-bar="true">
+	<style type="text/css">
+		.header{
+			height: 5.04rem;
+			background: url(img/adam.jpg);
+			background-size:100% 100% ;
+		}
+		.col-45{
+			width: 45%;
+		}
+		.col-offset-10{
+			margin-left:10% ;
+		}
+		.row_toggle{
+			position: relative;
+			height: 0.89rem;
+			border-bottom: 1px solid #dcdcdc;
+			line-height: 0.6rem;
+			font-size: 0.28rem;
+		}
+		.col-49{
+			flex: 0 0 49%;
+		}
+		.col-offset-1{
+			margin-left: 0.5%;
+			
+		}
+		.designBox{
+			width: 3.75rem;
+			height: 3.75rem;
+			background: black;
+		}
+	
+	.underline_design{
+		
+		position: absolute;
+				left: 38%;
+		width: 0.55rem;
+		height: 0.04rem;
+              background: #d0a421;
+              bottom: 20%;
+	}
+	
+	</style>
+  <ion-content>
+   <div class="content header">
+   	<p>哈哈</p>
+   	<p>哈哈哈哈</p>
+   	<p>哈哈</p>
+   </div>
+  
+   <div class="row row_toggle">
+   	<div class="col col-45 " style="text-align: right;padding: 0;" ng-style="industryCss" ng-click="changeToindustry()">
+   		行业
+
+  
+   		
+   		
+   	</div>
+   		<div class="col  col-offset-10" style="text-align: left;padding: 0;" ng-style="styleCss" ng-click="changeTostyle()">
+   		风格
+   
+    	</div>
+    		<div class="underline_design"></div>
+   		</div>
+   </div>
+   <div ng-show="industry" >
+   	<div class="row" style="padding: 0;margin-top: 0.04rem;">
+   		<div class="col col-49 designBox"></div>
+   		<div class="col col-49 col-offset-1 designBox"></div>
+   	</div>
+   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
+   		<div class="col col-49 designBox"></div>
+   		<div class="col col-49 col-offset-1 designBox"></div>
+   	</div>
+   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
+   		<div class="col col-49 designBox"></div>
+   		<div class="col col-49 col-offset-1 designBox"></div>
+   	</div>
+   </div>
+   <div ng-show="style"> 
+   	<div class="row" style="padding: 0;margin-top: 0.04rem;">
+   		<div class="col col-49 designBox" style="background: blue;"></div>
+   		<div class="col col-49 col-offset-1 designBox"></div>
+   	</div>
+   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
+   		<div class="col col-49 designBox"></div>
+   		<div class="col col-49 col-offset-1 designBox"></div>
+   	</div>
+   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
+   		<div class="col col-49 designBox"></div>
+   		<div class="col col-49 col-offset-1 designBox"></div>
+   	</div>
+   </div>
+   
+  </ion-content>
+</ion-view>

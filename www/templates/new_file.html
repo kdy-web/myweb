@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" type="text/css" href="../js/swiper-3.3.1.min.css"/>
+
+    <!-- Demo styles -->
+    <style>
+    	html{
+	height:100%;
+}
+body{
+	height:100%;
+
+
+}
+  .swiper-container{
+	width:100%;	
+
+    perspective: 1200px;
+}
+.swiper-wrapper{
+		margin-top:10px;
+	}
+.swiper-slide{
+	width:80%;
+
+    transform-style: preserve-3d;
+}
+.swiper-slide-active {
+
+}
+.swiper-slide .main-img{
+	width:90%;
+	margin:0 auto;
+	display:block;
+}
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+  <div class="swiper-container">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            	<img src="../img/adam.jpg" class="main-img" />
+            	
+            </div>
+            <div class="swiper-slide">
+            	<img src="../img/ben.png" class="main-img"/>
+            	
+            </div>
+            <div class="swiper-slide">
+            	<img src="../img/mike.png" class="main-img"/>
+            </div>
+            <div class="swiper-slide"><img src="../img/ben.png" class="main-img"/></div>
+            <div class="swiper-slide"><img src="../img/mike.png" class="main-img"/></div>
+            <div class="swiper-slide"><img src="../img/adam.jpg" class="main-img"/></div>
+            <div class="swiper-slide"><img src="../img/ben.png" class="main-img"/></div>
+            <div class="swiper-slide"><img src="../img/mike.png" class="main-img"/></div>
+            <div class="swiper-slide"><img src="../img/ben.png" class="main-img"/></div>
+            <div class="swiper-slide"><img src="../img/ben.png" class="main-img"/></div>
+        </div>
+        <!-- Add Pagination -->
+   
+    </div>
+
+    <!-- Swiper JS -->
+    
+    
+    
+    
+ <script src="../js/swiper.min.js" type="text/javascript">
+ 	
+ </script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+    	effect: 'coverflow', 
+      slidesPerView: "auto",
+	centeredSlides: true,
+	watchSlidesProgress: true,
+
+	 coverflow: {
+            rotate: 0,  //设置为0
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows : false
+        },   
+	onProgress: function(a) {
+		var b, c, d;
+		for(b = 0; b < a.slides.length; b++) c = a.slides[b], d = c.progress, scale = 1 - Math.min(Math.abs(.2 * d), 1), es = c.style, es.opacity = 1 - Math.min(Math.abs(d / 2), 1), es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = "translate3d(0px,0," + -Math.abs(150 * d) + "px)"
+	},
+	onSetTransition: function(a, b) {
+		for(var c = 0; c < a.slides.length; c++) es = a.slides[c].style, es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = b + "ms"
+	}
+    });
+    </script>
+</body>
+</html>

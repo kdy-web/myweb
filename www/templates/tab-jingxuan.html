@@ -1,0 +1,115 @@
+<ion-view view-title="{{chat.name}}" hide-nav-bar="true" hide-tabs="true">
+	<style type="text/css">
+		.row_jingxuan_header{
+			position: relative;
+		}
+		.jingxuan_header{
+			height: 1.25rem;
+			background: #242424;
+		}
+		.jingxuan_button{
+			width: 0.4rem;
+			height: 0.50rem;
+		position: relative;
+		bottom: 0.2rem;
+		left: 0.4rem;
+		float: left;
+			margin-bottom: 0.4rem;
+		}
+		.jingxuan_title{
+		
+			text-align:left;
+			color: white;
+			font-size: 0.4rem;
+		}
+		.jx_row .col{
+     	width: 3.3rem;
+     	height: 4.72rem;
+     	margin-top: 0.1rem;
+     }
+     .jx_row .col div{
+     	position: relative;
+     	
+     }
+     .jx_row .col p{
+     	text-align: center;
+     	line-height: 0.2rem;
+     }
+      .jx_row .col div img{
+      	width: 3.3rem;
+      	height: 3.3rem;
+      }
+ .jx_row .col div   .jx_price{
+ 	width: 1.5rem;
+ 	
+ 	font-size: 0.14rem;
+ 	line-height: 0.3rem;
+ 	position: absolute;
+ 	bottom: 0.10rem;
+ 	left: 0;
+ 	color: #FFFFFF;
+ 	background: linear-gradient(to right,#333 10%,transparent);
+ }
+ .list_animation{
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0.5rem;
+				
+			}
+			.img_shake{
+				width: 0.7rem;
+				height: 0.5rem;
+				position: absolute;
+				bottom: -0.01rem;
+				animation: frame 3s infinite;
+				left: 3%;
+				z-index: 2;
+			}
+			@keyframes frame{
+				0%{left: 3%;transform: rotateY(0);}
+				49%{left: 82%;transform: rotateY(0);}
+				50%{left:86%;transform: rotateY(180deg);}
+				99%{left: 4%;transform: rotateY(180deg);}
+				100%{left: 3%;transform: rotateY(0)}
+			}
+			.img_line{
+				position: absolute;
+				width: 90%;
+				z-index: 1;
+				bottom: 0;
+				margin-left: 5%;
+			}
+	</style>
+	
+	<div class="jingxuan_header">
+    	<div style="width:100%;height: 0.5rem;"></div>
+    	<div class="row row_jingxuan_header" style="width: 100%;height: 0.75rem;padding: 0;">
+    <div class="col col-40">
+<button class="button button-icon jingxuan_button icon ion-ios-arrow-left light" ng-click="goback()">
+
+</button></div>
+<div class="col">
+<div class="jingxuan_title">专题精选</div>
+</div>
+   
+     </div>
+      </div>
+      <ion-content style="margin-top:1.25rem ;">
+	<div >
+   	<div class="row jx_row" ng-repeat="jx in firstArr">
+   		<div class="col" ng-repeat="jxcol in jx">
+   			<div><img src="{{jxcol.src}}" />
+   			</div>
+   			<p style="margin-top: 0.1rem;">{{jxcol.name}}</p>
+   			<p>{{jxcol.title}}</p>
+   			<p><i class="icon ion-ios-heart-outline" style="position: relative;top: 0.02rem;right: 0.04rem;"></i>{{jxcol.liked}}</p>
+   		</div>
+   		
+   		</div>
+   		
+   	</div>
+
+ <ion-infinite-scroll   ng-if="hasmore" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+</ion-content>
+</ion-view>
