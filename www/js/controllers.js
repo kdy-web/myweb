@@ -258,7 +258,7 @@ $timeout(function(){
          
          }
         
-      },100)
+      },80)
  
 	    	},500)
 	   
@@ -290,7 +290,7 @@ $timeout(function(){
          
          }
         
-      },100)
+      },80)
       		}else{
       			swiper.slideTo(0)
       			window.location="#/tab/jingxuan/"+$scope.id
