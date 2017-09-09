@@ -225,7 +225,7 @@ $timeout(function(){
   		
   	$scope.imgData=$scope.slideData[i].img
     console.log($scope.id)
-  	 $scope.swiper = new Swiper('.slide_swiper', {
+  	var swiper = new Swiper('.slide_swiper', {
   	 	
 	 	 initialSlide :0,
 	    observer:true,//修改swiper自己或子元素时，自动初始化swiper
