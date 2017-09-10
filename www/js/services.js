@@ -200,4 +200,20 @@ angular.module('starter.services', [])
 	
 	]
 	return obj;
+}).factory("design",function(){
+	var obj={
+		hangye:[
+		[{title:"箱包",src:"img/type5.jpg",index:"0",designerId:"01"},{title:"生活家居",src:"img/type4.jpg",index:"1",designerId:"02"}],
+		[{title:"女装",src:"img/type1.jpg",index:"2",designerId:"03"},{title:"男装",src:"img/type2.jpg",index:"3",designerId:"04"}],
+		[{title:"鞋靴",src:"img/type6.jpg",index:"4",designerId:"05"},{title:"配饰",src:"img/type3.jpg",index:"5",designerId:"06"}]
+		],
+		fengge:[
+		[{title:"玩具",src:"img/FoPj_NSVpQCunt4gQESCi4_RuWmv.jpg",index:"6",designerId:"07"},{title:"沙发",index:"7",src:"img/FpHbpmJmRWxfvXRAu7d3HpDVWHXU.jpg",designerId:"08"}],
+		[{title:"彩",src:"img/FqXV7z91rQrrTB-6AjVyW0jBsr1l.jpg",index:"8",designerId:"09"},{title:"装饰摆件",index:"9",src:"img/FnOLth7Cmggf8C0RcLw-B21P7dYR.jpg",designerId:"10"}],
+		[{title:"茶壶",src:"img/FhBSETiQ7BibdWn5NUmO5opOVjO2.jpg",index:"10",designerId:"11"},{title:"玻璃花瓶",index:"11",src:"img/FvldYjQM2niRt7O05n_WMn461F5H.jpg",designerId:"12"}]
+		
+		]
+		
+	}
+	return obj;
 })

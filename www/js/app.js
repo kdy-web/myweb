@@ -116,7 +116,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-
+.state('tab.designer', {
+    url: '/designer/:designerId',
+    views: {
+      'tab-design': {
+        templateUrl: 'templates/tab-designer.html',
+        controller: 'DesignerCtrl'
+      }
+    }
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/zhuanti');
 

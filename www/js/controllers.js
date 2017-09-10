@@ -71,7 +71,23 @@ spaceBetween:50,
 		}
 })
 
-.controller('DesignCtrl', function($scope) {
+.controller('DesignCtrl', function($scope,design) {
+	$scope.hangye=design.hangye;
+	$scope.fengge=design.fengge;
+	
+	$scope.anxia=function(index){
+		console.log(index)
+		$(".designBox").eq(index).children(".title_box").css("display","none")
+	}
+	$scope.fangkai=function(id,index){
+		window.location="#/tab/designer/"+id
+		$(".designBox").eq(index).children(".title_box").css("display","block")
+	}
+	$scope.designer=function(id){
+		window.location="#/tab/designer/"+id
+	}
+	
+	console.log($scope.fengge)
 	$scope.industryCss={
 		'color':"#d0a421"
 	
@@ -374,6 +390,9 @@ $scope.hasmore=true;
 	$scope.goback=function(){
 		window.location="#/tab/zhuangti"
 	}
+	
+})
+.controller("DesignerCtrl",function($scope){
 	
 })
 

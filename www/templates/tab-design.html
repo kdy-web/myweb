@@ -2,8 +2,17 @@
 	<style type="text/css">
 		.header{
 			height: 5.04rem;
-			background: url(img/adam.jpg);
+			background: url(img/img1.jpg);
 			background-size:100% 100% ;
+			position: relative;
+		}
+		.header .text_box{
+			position: absolute;
+			padding-left: 10%;
+			bottom: 0;
+		}
+		.header p{
+			color: white;
 		}
 		.col-45{
 			width: 45%;
@@ -28,9 +37,29 @@
 		.designBox{
 			width: 3.75rem;
 			height: 3.75rem;
-			background: black;
+			position: relative;
 		}
-	
+	.img_box{
+		width: 100%;
+		height: 100%;
+		
+	}
+	.img_box img{
+		width: 100%;
+		height: 100%;
+	}
+	.title_box{
+		width: 100%;
+		height: 100%;
+		color: white;
+		font-size: 0.32rem;
+		text-align: center;
+		line-height: 3.75rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: rgba(0,0,0,0.5);
+	}
 	.underline_design{
 		
 		position: absolute;
@@ -44,9 +73,14 @@
 	</style>
   <ion-content>
    <div class="content header">
-   	<p>哈哈</p>
-   	<p>哈哈哈哈</p>
-   	<p>哈哈</p>
+   	<div class="text_box">
+   		
+   <div style="color: white;font-size: 0.32rem;">手艺 <div style="display: inline-block;width: 0.05rem;height: 0.4rem;background: white;position: relative;top: 0.06rem;margin-left: 0.05rem;margin-right: 0.05rem;"></div> 手艺辰手工皮具</div>
+   	<p style="font-size: 0.26rem;">创始人 , 手工匠人</p>
+   	<p style="font-size: 0.2rem;">箱包 简约</p>
+   		
+   	</div>
+   
    </div>
   
    <div class="row row_toggle">
@@ -65,32 +99,30 @@
    		</div>
    </div>
    <div ng-show="industry" >
-   	<div class="row" style="padding: 0;margin-top: 0.04rem;">
-   		<div class="col col-49 designBox"></div>
-   		<div class="col col-49 col-offset-1 designBox"></div>
+   	<div class="row" style="padding: 0;margin-top: 0.04rem;" ng-repeat="industry in hangye">
+   		<div class="col col-49 designBox" style="padding: 0;" on-touch="anxia(industry[0].index)" on-release="fangkai(industry[0].designerId,industry[0].index)" ng-click="designer(industry[0].designerId)">
+   			<div class="img_box"><img src="{{industry[0].src}}"/></div>
+   			<div class="title_box" >{{industry[0].title}}</div>
+   		</div>
+   		<div class="col col-49 col-offset-1 designBox" style="padding: 0;" on-touch="anxia(industry[1].index)" on-release="fangkai(industry[1].designerId,industry[1].index)" ng-click="designer(industry[1].designerId)">
+   			<div class="img_box"><img src="{{industry[1].src}}"/></div>
+   			<div class="title_box" >{{industry[1].title}}</div>
+   		</div>
    	</div>
-   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
-   		<div class="col col-49 designBox"></div>
-   		<div class="col col-49 col-offset-1 designBox"></div>
-   	</div>
-   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
-   		<div class="col col-49 designBox"></div>
-   		<div class="col col-49 col-offset-1 designBox"></div>
-   	</div>
+   		
    </div>
    <div ng-show="style"> 
-   	<div class="row" style="padding: 0;margin-top: 0.04rem;">
-   		<div class="col col-49 designBox" style="background: blue;"></div>
-   		<div class="col col-49 col-offset-1 designBox"></div>
+   	<div class="row" style="padding: 0;margin-top: 0.04rem;" ng-repeat="style in fengge" >
+   		<div class="col col-49 designBox" style="padding: 0;" on-touch="anxia(style[0].index)" on-release="fangkai(style[0].designerId,style[0].index)" ng-click="designer(style[0].designerId)">
+   			<div class="img_box"><img src="{{style[0].src}}"/></div>
+   			<div class="title_box" >{{style[0].title}}</div>
+   		</div>
+   		<div class="col col-49 col-offset-1 designBox" style="padding: 0;" on-touch="anxia(style[1].index)" on-release="fangkai(style[1].designerId,style[1].index)" ng-click="designer(style[1].designerId)">
+   			<div class="img_box"><img src="{{style[1].src}}"/></div>
+   			<div class="title_box" >{{style[1].title}}</div>
+   		</div>
    	</div>
-   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
-   		<div class="col col-49 designBox"></div>
-   		<div class="col col-49 col-offset-1 designBox"></div>
-   	</div>
-   		<div class="row" style="padding: 0;margin-top: 0.04rem;">
-   		<div class="col col-49 designBox"></div>
-   		<div class="col col-49 col-offset-1 designBox"></div>
-   	</div>
+   		
    </div>
    
   </ion-content>
