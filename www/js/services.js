@@ -216,4 +216,97 @@ angular.module('starter.services', [])
 		
 	}
 	return obj;
+}).factory("designer",function(){
+	var obj=[
+	{designerId:"01",arr:[
+	{title:"箱包"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"02",arr:[
+	{title:"生活家居"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"03",arr:[
+	{title:"女装"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"04",arr:[
+	{title:"男装"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"05",arr:[
+	{title:"鞋靴"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"06",arr:[
+	{title:"配饰"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"07",arr:[
+	{title:"玩具"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"08",arr:[
+	{title:"沙发"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"09",arr:[
+	{title:"彩"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"10",arr:[
+	{title:"装饰摆件"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"11",arr:[
+	{title:"茶壶"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]},
+	{designerId:"12",arr:[
+	{title:"玻璃花瓶"},{img:[{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""},
+	{src:"",name:"",des:"",style:"",count:""}]}
+	]}
+	]
+	
+		
+		
+	
+	return obj;
+	
 })

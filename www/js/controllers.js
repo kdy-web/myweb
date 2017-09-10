@@ -392,8 +392,22 @@ $scope.hasmore=true;
 	}
 	
 })
-.controller("DesignerCtrl",function($scope){
+.controller("DesignerCtrl",function($scope,$stateParams,designer){
+	$scope.id=$stateParams.designerId
+	console.log($scope.id)
+	$scope.arr=designer
+
+	for(var i=0;i<$scope.arr.length;i++){
+		if($scope.arr[i].designerId==$scope.id){
+			console.log(designer[i].arr)
+			$scope.title=designer[i].arr[0].title
+			
+		}
+	}
+	$scope.goback=function(){
 	
+		window.location="#/tab/design"
+	}
 })
 
 .directive('hideTabs', function($rootScope) {
