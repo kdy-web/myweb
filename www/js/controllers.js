@@ -320,7 +320,7 @@ $timeout(function(){
   	}
   }
 	
-}).controller("JingxuanCtrl",function($scope,$ionicHistory,$stateParams,goods_list,$timeout){
+}).controller("JingxuanCtrl",function($scope,$ionicHistory,$stateParams,goods_list,$timeout,$ionicLoading){
 $scope.hasmore=true;
 	$scope.id=$stateParams.myId
 	$scope.list=goods_list;
@@ -340,11 +340,19 @@ $scope.hasmore=true;
 			
 			
 		}
-		$scope.firstArr.push($scope.arr[0],$scope.arr[1],$scope.arr[2])
+		$scope.firstArr.push($scope.arr[1],$scope.arr[2],$scope.arr[3])
 		console.log($scope.firstArr)
 		}
 	}
-	 $scope.index=2;
+	 $scope.index=3;
+	 $scope.doRefresh=function(){
+	 	$ionicLoading.show()
+	 	$timeout(function(){
+	 	$scope.firstArr.unshift($scope.arr[0]);
+	 	$scope.$broadcast('scroll.refreshComplete');
+	 	$ionicLoading.hide()
+	 	},1000)
+	 }
 	 $scope.loadMore = function () { 
 	$timeout(function(){
 		$scope.index++; 
