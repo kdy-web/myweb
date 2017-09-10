@@ -157,15 +157,15 @@ flex: 0 0 29%;
      	<div class="row attention_mid" style="padding: 0;">
      		关注感兴趣的设计师，及时了解他们的动态
      	</div>
-     	<div class="list" >
+     	<div class="list" ng-repeat="attention in data">
      		<div class="item row attention_item" style="border: none;">
-     	<div class="col col-20 item_imgBox"> <img class="item-img" src="img/adam.jpg"></div>
+     	<div class="col col-20 item_imgBox"> <img class="item-img" src="{{attention.src}}"></div>
    
    
     <div class="item_right col col-80">
     	<div class="item_text">
-    <h2>Marty McFly</h2>
-    <p>November 05, 1955</p>
+    <h2>{{attention.name}}</h2>
+    <p>{{attention.des}}</p>
     
     </div> <button class="icon-left ion-android-add light-bg attention_button">关注</button>
 

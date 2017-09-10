@@ -29,6 +29,34 @@
 			color: white;
 			font-size: 0.4rem;
 		}
+		.item-img{
+			width: 1.16rem;
+			height: 1.16rem;
+			border: 1px solid #333333;
+			border-radius:50% ;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		.item_imgBox{
+			position: relative;
+		}
+		.attention_item{
+			height: 1.7rem;
+		}
+		.item_text{
+			width: 4rem;
+			float: left;
+		}
+		.item_right{
+			padding-top: 0.2rem;
+		
+			float: left;
+			border-bottom:1px solid #dadada ;
+		}
 </style>
 	<div class="designer_header">
     	<div style="width:100%;height: 0.5rem;"></div>
@@ -44,6 +72,25 @@
      </div>
       </div>
   <ion-content style="margin-top:1.25rem ;">
+   	<div class="list" ng-repeat="listdata in data">
+     		<div class="item row attention_item" style="border: none;">
+     	<div class="col col-20 item_imgBox"> <img class="item-img" src="{{listdata.src}}"></div>
+   
+   
+    <div class="item_right col col-80">
+    	<div class="item_text">
+    <h2>{{listdata.name}}</h2>
+    <p style="line-height: 0.3rem;">{{listdata.des}}</p>
+     <p style="line-height: 0.3rem;">{{listdata.style}}</p>
+    </div> <p>{{listdata.count}} 作品</p>
+
+  </div>
+ 
+  
+     	</div>
+     	
+     </div>
+   
    
   </ion-content>
 </ion-view>

@@ -80,7 +80,7 @@ spaceBetween:50,
 		$(".designBox").eq(index).children(".title_box").css("display","none")
 	}
 	$scope.fangkai=function(id,index){
-		window.location="#/tab/designer/"+id
+		
 		$(".designBox").eq(index).children(".title_box").css("display","block")
 	}
 	$scope.designer=function(id){
@@ -123,7 +123,9 @@ $scope.changeTostyle=function(){
 }
 
 })
-.controller('ChatsCtrl',function($scope){
+.controller('ChatsCtrl',function($scope,designer){
+	$scope.data=designer[0].arr[1].img
+	console.log($scope.data)
 	$scope.searchCss={
 		color:"#ffffff"
 	}
@@ -401,8 +403,9 @@ $scope.hasmore=true;
 		if($scope.arr[i].designerId==$scope.id){
 			console.log(designer[i].arr)
 			$scope.title=designer[i].arr[0].title
-			
-		}
+			$scope.data=designer[i].arr[1].img
+			console.log($scope.data)
+	}
 	}
 	$scope.goback=function(){
 	

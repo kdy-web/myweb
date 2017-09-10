@@ -102,6 +102,7 @@
    	<div class="row jx_row" ng-repeat="jx in firstArr">
    		<div class="col" ng-repeat="jxcol in jx">
    			<div><img src="{{jxcol.src}}" />
+   			<div class="jx_price">￥ {{jxcol.price}}</div>
    			</div>
    			<p style="margin-top: 0.1rem;">{{jxcol.name}}</p>
    			<p>{{jxcol.title}}</p>
