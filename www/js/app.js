@@ -126,6 +126,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+.state('tab.guangtotal', {
+    url: '/guangtotal/:myId',
+    views: {
+      'tab-guang': {
+        templateUrl: 'templates/tab-guangtotal.html',
+        controller: 'GuangtotalCtrl'
+      }
+    }
+  })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/zhuanti');
 

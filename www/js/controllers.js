@@ -43,6 +43,7 @@ spaceBetween:50,
 		for(var c = 0; c < a.slides.length; c++) es = a.slides[c].style, es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = b + "ms"
 	}
     })
+	
 		$scope.slide=zhuangtiSlide ;
 		$scope.zhuanti=function(id){
 	    var body_w=$(window).width()*2/100
@@ -164,6 +165,9 @@ $scope.attention=true
 })
 
 .controller('GuangCtrl', function($scope,goods_list,$timeout,$ionicLoading) {
+	 $scope.go=function(id){
+	 window.location="#/tab/guangtotal/"+id
+	 }
   $scope.jx=true;
   $scope.data=goods_list;
   $scope.myarr=[];
@@ -467,7 +471,70 @@ $scope.hasmore=true;
 		window.location="#/tab/design"
 	}
 })
+.controller("GuangtotalCtrl",function($scope,$ionicHistory,$stateParams,goods_list,$timeout,$ionicLoading){
+//$scope.$on('$ionicView.beforeEnter', function() {//视图进入
+//         if (location.href.indexOf("?xyz=")<0){
+//		    	window.location.reload();//页面刷新一次
+//			 location.href=location.href+"?xyz="+Math.random();
+//			 }
+//    });
 
+$scope.hasmore=true;
+	$scope.id=$stateParams.myId
+	$scope.list=goods_list;
+	
+	for(var i=0;i<$scope.list.length;i++){
+		if($scope.list[i].id==$scope.id){
+			$scope.arr=[];
+			$scope.firstArr=[];
+		$scope.listData=$scope.list[i]
+		console.log($scope.listData)
+		for(var j=0;j<$scope.listData.arr.length;j++){
+			if((j-1)%2==0){
+				var listArr=[]
+			listArr.push($scope.listData.arr[j-1],$scope.listData.arr[j])	
+				$scope.arr.push(listArr)
+			}
+			
+			
+			
+		}
+		$scope.firstArr.push($scope.arr[1],$scope.arr[2],$scope.arr[3])
+		console.log($scope.firstArr)
+		}
+	}
+	 $scope.index=3;
+	 $scope.doRefresh=function(){
+	 	$ionicLoading.show()
+	 	$timeout(function(){
+	 	$scope.firstArr.unshift($scope.arr[0]);
+	 	$scope.$broadcast('scroll.refreshComplete');
+	 	$ionicLoading.hide()
+	 	},1000)
+	 }
+	 $scope.loadMore = function () { 
+	$timeout(function(){
+		$scope.index++; 
+      loadajax(); 
+	},1000)
+      
+    }
+	 function loadajax(){
+	 	 var dataValue = $scope.index;
+	 	 if(dataValue==$scope.arr.length){
+	 	 	$scope.hasmore=false;
+	 	 }else{
+	 	 	$scope.firstArr.push($scope.arr[dataValue]);
+	 	 	$scope.$broadcast('scroll.infiniteScrollComplete');
+	 	 }
+	 	 console.log(dataValue);
+	 	 
+	 }
+	$scope.goback=function(){
+		window.location="#/tab/guang"
+	}
+	
+})
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',
