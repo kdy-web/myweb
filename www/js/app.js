@@ -109,6 +109,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   }) .state('tab.jingxuan', {
     url: '/jingxuan/:myId',
+    cache:false,
     views: {
       'tab-zhuanti': {
         templateUrl: 'templates/tab-jingxuan.html',

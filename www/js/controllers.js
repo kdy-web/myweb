@@ -20,9 +20,9 @@ angular.module('starter.controllers', [])
 	
 	
 	 var swiper = new Swiper('#zhuangti_swiper', {
-//	 	 initialSlide :0,
-//	    observer:true,//修改swiper自己或子元素时，自动初始化swiper
-//	    observeParents:true,//修改swiper的父元素时，自动初始化swiper
+	 	 initialSlide :0,
+	    observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    observeParents:true,//修改swiper的父元素时，自动初始化swiper
     	effect: 'coverflow', 
       slidesPerView: "auto",
 	centeredSlides: true,
@@ -162,22 +162,62 @@ $scope.attention=true
 	
 	
 })
-//.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-//$scope.chat = Chats.get($stateParams.chatId);
-//})
 
-.controller('GuangCtrl', function($scope,goods_list) {
+.controller('GuangCtrl', function($scope,goods_list,$timeout,$ionicLoading) {
   $scope.jx=true;
-  $scope.data=goods_list
-    var swiper = new Swiper('.guangtab_swiper', {
-     initialSlide :0,
-	    observer:true,//修改swiper自己或子元素时，自动初始化swiper
-	    observeParents:true,//修改swiper的父元素时，自动初始化swiper
-        slidesPerView: 3,
-     
-        spaceBetween: 50
-      
+  $scope.data=goods_list;
+  $scope.myarr=[];
+  $scope.mydata=[];
+  $scope.lastarr=[];
+  $timeout(function(){
+  	  var mySwiper = new Swiper('.guangtab_swiper', {
+    observer:true,//修改swiper自己或子元素时，自动初始化swiper 
+   observeParents:false,//修改swiper的父元素时，自动初始化swiper 
+    slidesPerView: 3,
+        spaceBetween: 30
+
     });
+  },500)
+ 
+for(var i=0;i<$scope.data.length;i++){
+	for(var j=0;j<$scope.data[i].arr.length;j++){
+		$scope.myarr.push($scope.data[i].arr[j])
+	}
+}
+ 
+  for(var k=0;k<$scope.myarr.length;k++){
+  	if((k-1)%2==0){
+  		var arr=[];
+  		arr.push($scope.myarr[k-1],$scope.myarr[k]);
+  		$scope.mydata.push(arr)
+  	}
+  }
+  $scope.lastarr.push($scope.mydata[4],$scope.mydata[5]);
+  $scope.index=5;
+  $scope.hasmore=true;
+  
+ $scope.doRefresh=function(){
+ 	 	$ionicLoading.show()
+	 	$timeout(function(){
+	 	$scope.lastarr.unshift($scope.mydata[0],$scope.mydata[1],$scope.mydata[2],$scope.mydata[3]);
+	 	$scope.$broadcast('scroll.refreshComplete');
+	 	$ionicLoading.hide()
+	 	},1000)
+ }
+  $scope.loadMore=function(){
+  	 $scope.index++;
+  	 loadData()
+  }
+  function loadData(){
+  	var index= $scope.index
+  	if(index==$scope.mydata.length){
+  		 $scope.hasmore=false;
+  	}
+  	else{
+  		 $scope.lastarr.push($scope.mydata[index]);
+  		 $scope.$broadcast('scroll.infiniteScrollComplete');
+  	}
+  }
     $scope.jingstyle={
     	color:"#cbaa1d"
     }
@@ -342,6 +382,13 @@ $timeout(function(){
   }
 	
 }).controller("JingxuanCtrl",function($scope,$ionicHistory,$stateParams,goods_list,$timeout,$ionicLoading){
+$scope.$on('$ionicView.beforeEnter', function() {//视图进入
+           if (location.href.indexOf("?xyz=")<0){
+		    	window.location.reload();//页面刷新一次
+			 location.href=location.href+"?xyz="+Math.random();
+			 }
+      });
+
 $scope.hasmore=true;
 	$scope.id=$stateParams.myId
 	$scope.list=goods_list;
