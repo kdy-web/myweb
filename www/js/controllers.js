@@ -166,14 +166,17 @@ $scope.attention=true
 //$scope.chat = Chats.get($stateParams.chatId);
 //})
 
-.controller('GuangCtrl', function($scope) {
+.controller('GuangCtrl', function($scope,goods_list) {
   $scope.jx=true;
+  $scope.data=goods_list
     var swiper = new Swiper('.guangtab_swiper', {
-    
+     initialSlide :0,
+	    observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    observeParents:true,//修改swiper的父元素时，自动初始化swiper
         slidesPerView: 3,
      
-        spaceBetween: 50,
-        freeMode: true
+        spaceBetween: 50
+      
     });
     $scope.jingstyle={
     	color:"#cbaa1d"

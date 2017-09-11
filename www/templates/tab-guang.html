@@ -78,7 +78,7 @@
         margin: 0.2rem auto;
         
     }
-.guang_swiper   .swiper-slide {
+.guangtab_swiper   .swiper-slide {
         text-align: center;
          
         background: #fff;
@@ -101,17 +101,18 @@
     .col-offset-5{
     	margin-left:5% ;
     }
- .guang_swiper .swiper_img{
+ .guangtab_swiper .swiper_img{
     	width: 2.2rem;
     	height: 2.2rem;
     	display: block;
     }
-    .guang_swiper .swiper_img img{
+    .guangtab_swiper .swiper_img img{
     	width: 2.2rem;
     	height: 2.2rem;
     }
- .guang_swiper  .swiper-slide p{
+ .guangtab_swiper .swiper-slide p{
      	font-size: 0.26rem;
+     	white-space:nowrap;
      	
      }
      .goods_nav{
@@ -235,11 +236,12 @@
     </div>
     <div style="height: 0.4rem;"></div>
     <div style="height: 0.23rem;border-bottom: 1px solid #c9cdd0;background: #eff0f2;"></div>
-    <div class="goods" style="background: url(img/adam.jpg) no-repeat;background-size:100% 100% ;">
+    <div ng-repeat="guang in data">
+    <div class="goods" style="background: url({{guang.img}}) no-repeat;background-size:100% 100% ;">
     	<div class="goods_mark">
-    		<h3 style="color: #FFFFFF;text-align: center;margin-top: 1.1rem;font-size: 0.45rem;">坚持自我，我有我独特</h1>
+    		<h3 style="color: #FFFFFF;text-align: center;margin-top: 1.1rem;font-size: 0.45rem;">{{guang.title}}</h1>
     			<div class="heng"></div>
-    			<p style="text-align: center;margin-top: 0.2rem;">draconite潮牌</p>
+    			<p style="text-align: center;margin-top: 0.2rem;">{{guang.name}}</p>
     			<div class="goods_button">
     				查看全部
     			</div>
@@ -247,152 +249,22 @@
     	<div class="triangle"></div>
     	
     </div>
-  <div class="swiper-container guangtab_swiper" >
-        <div class="swiper-wrapper guang_swiper">
-            <div class="swiper-slide" style="margin-left:0.4rem;">
+  <div class="swiper-container guangtab_swiper">
+        <div class="swiper-wrapper ">
+            <div class="swiper-slide" style="margin-left:0.4rem;" ng-repeat="guangdata in guang.arr">
             	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
+            		<div class="swiper_img"><img src="{{guangdata.src}}"></div>
+            	<p style="margin-top: 0.2rem;">{{guangdata.title}}</p>
+            	<p style="line-height: 0.1rem;">{{guangdata.name}}</p>
+            	<p style="margin-top: 0.1rem;">￥{{guangdata.price}}</p>
             	</div>
             	
             </div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            <p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
+         
         </div>
   </div>
-    <div class="goods" style="background: url(img/adam.jpg) no-repeat;background-size:100% 100% ;">
-    	<div class="goods_mark">
-    		<h3 style="color: #FFFFFF;text-align: center;margin-top: 1.1rem;font-size: 0.45rem;">坚持自我，我有我独特</h1>
-    			<div class="heng"></div>
-    			<p style="text-align: center;margin-top: 0.2rem;">draconite潮牌</p>
-    			<div class="goods_button">
-    				查看全部
-    			</div>
-    	</div>
-    	<div class="triangle"></div>
-    	
-    </div>
-  <div class="swiper-container  guangtab_swiper" >
-        <div class="swiper-wrapper guang_swiper">
-            <div class="swiper-slide" style="margin-left: 0.4rem;">
-            	<div >
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div>
-            	
-            </div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            <p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-            <div class="swiper-slide">	<div>
-            		<div class="swiper_img"><img src="img/adam.jpg"></div>
-            	<p style="margin-top: 0.2rem;">DRACONITE</p>
-            	<p style="line-height: 0.1rem;">书包·双肩包</p>
-            	<p style="margin-top: 0.1rem;">￥167</p>
-            	</div></div>
-        </div>
-   </div>
+  </div>
+    
    <div style="height: 0.24rem;background: #f0f0f0;"></div>
    <div class="row goods_nav">
    	<div class="col" style="text-align: center;line-height: 0.9rem;" ng-click="jingxuan()" ng-style="jingstyle">精选</div>
