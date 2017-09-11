@@ -125,6 +125,9 @@ $scope.changeTostyle=function(){
 
 })
 .controller('ChatsCtrl',function($scope,designer){
+	$scope.goSystem=function(){
+		window.location="#/tab/chatssystem"
+	}
 	$scope.data=designer[0].arr[1].img
 	console.log($scope.data)
 	$scope.searchCss={
@@ -165,6 +168,9 @@ $scope.attention=true
 })
 
 .controller('GuangCtrl', function($scope,goods_list,$timeout,$ionicLoading) {
+	$scope.goSystem=function(){
+  	window.location="#/tab/guangsystem"
+  }
 	 $scope.go=function(id){
 	 window.location="#/tab/guangtotal/"+id
 	 }
@@ -181,7 +187,7 @@ $scope.attention=true
         spaceBetween: 30
 
     });
-  },500)
+  },10)
  
 for(var i=0;i<$scope.data.length;i++){
 	for(var j=0;j<$scope.data[i].arr.length;j++){
@@ -262,8 +268,28 @@ for(var i=0;i<$scope.data.length;i++){
     	}
 })
 
-.controller('MineCtrl', function($scope) {
-  
+.controller('MineCtrl', function($scope,$ionicModal,guide,$rootScope) {
+	 $ionicModal.fromTemplateUrl('templates/modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+	$scope.openModal=function(){
+		 $scope.modal.show();
+	}
+	
+	
+	
+	if(guide.get("person")){
+		$rootScope.logined=true;
+	}else{
+		$rootScope.login=true;
+	}
+	$scope
+  $scope.goSystem=function(){
+  	window.location="#/tab/minesystem"
+  }
 })
 .controller('SlideCtrl', function($scope,$stateParams,zhuangtiSlide,$ionicHistory,$timeout,slide,$interval ) {
   $scope.id=$stateParams.myId;
@@ -472,12 +498,7 @@ $scope.hasmore=true;
 	}
 })
 .controller("GuangtotalCtrl",function($scope,$ionicHistory,$stateParams,goods_list,$timeout,$ionicLoading){
-//$scope.$on('$ionicView.beforeEnter', function() {//视图进入
-//         if (location.href.indexOf("?xyz=")<0){
-//		    	window.location.reload();//页面刷新一次
-//			 location.href=location.href+"?xyz="+Math.random();
-//			 }
-//    });
+
 
 $scope.hasmore=true;
 	$scope.id=$stateParams.myId
@@ -535,6 +556,43 @@ $scope.hasmore=true;
 	}
 	
 })
+.controller("SystemCtrl",function($scope){
+	$scope.hash=window.location.hash
+	console.log($scope.hash)
+	$scope.goback=function(){
+		window.history.back()
+	}
+})
+.controller("TaskCtrl",function($scope,guide,$rootScope){
+$scope.obj={};
+	
+ $scope.doLogin=function(){
+var value=JSON.stringify($scope.obj)
+ 	console.log(value)
+ 	guide.set("person",value)
+ 		$scope.modal.hide();
+ 		$rootScope.logined=true;
+ 		$rootScope.login=false;
+ }
+ $scope.login=true;
+ 	$scope.shiqu=function(){
+ 		if($scope.obj.password=="" || $scope.obj.name==""){
+ 			$scope.login=true;
+ 			
+ 		
+ 	}else{
+ 		$scope.login=false;
+ 	
+ 		
+ 	}
+ 	
+ 	}
+ 		
+ 		$scope.close=function(){
+ 			$scope.modal.hide();
+ 		}
+ 		
+ })
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',

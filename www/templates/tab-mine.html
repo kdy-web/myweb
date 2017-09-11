@@ -44,9 +44,15 @@
 			font-size: 0.26rem;
 			
 		}
+		.modal_heaer{
+			width: 100%;
+			height: 1.25rem;
+			background: #242424;
+		
+		}
 	</style>
   <ion-content >
-   <div class=" mine_header">
+   <div class=" mine_header" ng-show="logined">
    	
    	<div style="height: 0.56rem;width: 100%;"></div>
    	<div style="width: 100%;height: 1rem;">
@@ -54,7 +60,7 @@
    		<img src="img/adam.jpg" style="border-radius:50% ;width: 1rem;height: 1rem;margin-left: 3.2rem;">
    	</div>
    	<div style="float: left;height: 1rem;width: 1rem;">
-   		<i class="icon ion-ios-chatbubble-outline light" style="float: right;margin-right: 0.36rem;font-size: 0.5rem;"></i>
+   		<i class="icon ion-ios-chatbubble-outline light" style="float: right;margin-right: 0.36rem;font-size: 0.5rem;" ng-click="goSystem()"></i>
    	</div></div>
    	<div style="text-align: center;">
    		<span style="color: white;font-size: 0.36rem;">haha</span><i><img src="img/icn_male.png" style="width: 0.4rem;height: 0.4rem;position: relative;top: 0.04rem;"/></i>
@@ -73,10 +79,43 @@
    			<p style="color: #8b8c8e;">粉丝</p>
    		</div>
    		<div class="col">
-   			<button class="button icon-left ion-ios-compose-outline mine_bianji" >编辑资料</button>
+   			<button class="button icon-left ion-ios-compose-outline mine_bianji" ng-click="gochange()">编辑资料</button>
    		</div>
    	</div>
    </div>
+   
+   	 <div class=" mine_header" ng-show="login">
+   	
+   	<div style="height: 0.56rem;width: 100%;"></div>
+   	<div style="width: 100%;height: 1rem;">
+  
+   	<div style="float: right;height: 1rem;width: 1rem;">
+   		<i class="icon ion-ios-chatbubble-outline light" style="float: right;margin-right: 0.36rem;font-size: 0.5rem;" ng-click="openModal()"></i>
+   	</div></div>
+   	<div style="text-align: center;">
+   		<span style="color: #858688;">在这里，找到属于你的不一样</span><br /><br />
+   		<button style="width: 1.8rem;height: 0.6rem;border-radius:0.1rem;border: 1px solid #858688;color: white;background: transparent;font-size: 0.26rem;" ng-click="openModal()">登录/注册</button>
+   	</div>
+   	
+   	<div style="text-align: center;color: #858688;margin-bottom: 0.6rem;font-size: 0.24rem;"></div>
+   	
+   	<div class="row">
+   		<div class="col col-15 " style="margin-left: 5%;">
+   			<p style="color: white;">0</p>
+   			<p style="color: #8b8c8e;">关注</p>
+   		</div>
+   		<div  style="width: 0.03rem;height: 0.4rem;background: #8b8c8e;margin-right: 5%;position: relative;top: 0.15rem;"></div>
+   		<div class="col col-15">
+   			<p style="color: white;">0</p>
+   			<p style="color: #8b8c8e;">粉丝</p>
+   		</div>
+   		<div class="col">
+   			<button class="button icon-left ion-ios-compose-outline mine_bianji" ng-click="modal.show()">编辑资料</button>
+   		</div>
+   	</div>
+   </div>
+   
+   
    <div style="height: 0.18rem;background: #f0f0f0;border-top:#d3d3d3 1px solid ;border-bottom:#d3d3d3 1px solid ;"></div>
    <div>
    	<div class="row row_mine" style="padding: 0;">
@@ -142,4 +181,30 @@
  </div>
   <div style="height:1rem ;background: #f0f0f0;"></div>
   </ion-content>
+  
+  
+  
+  <script id="templates/modal.html" type="text/ng-template">
+  <div id="task-view" class="modal slide-in-up" ng-controller="TaskCtrl">
+   	<header class="modal_heaer">
+   		<div style="width:100%;height: 0.5rem;"></div>
+   		<div style="width: 100%;" class="row">
+   		<div class="col col-20"><i class="icon ion-ios-close-empty light" style="font-size: 1rem;position: relative;bottom: 0.4rem;left: 0.2rem;" ng-click="close()"></i></div>
+						<div class="col col-offset-20" style="color: white;font-size: 0.36rem;position: relative;bottom: 0.1rem;">密码登录</div>
+						<div class="col" style="color: white;text-align: right;margin-right: 0.1rem;position: relative;bottom: 0.1rem;">短信登录</div>
+						</div>
+					</header>
+    <ion-content style="margin-top: 1.25rem;">
+     <div class="list list-inset">
+					  <label class="item item-input">
+					    <input type="text" placeholder="用户名" ng-model="obj.name" ng-blur="shiqu()">
+					  </label>
+					  <label class="item item-input">
+					    <input type="password" placeholder="密码" ng-model="obj.password" ng-blur="shiqu()">
+					  </label>
+					</div>
+					 <div class="loginButton padding"><button class="button button-block "  style="background: #242424;color: white;" ng-disabled="login" ng-click="doLogin()"> 登录 </button> </div>
+    </ion-content>
+  </div>
+</script
 </ion-view>

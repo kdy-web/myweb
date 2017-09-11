@@ -181,7 +181,7 @@ angular.module('starter.services', [])
 	{title:"短款钱包·时尚",name:"無象",liked:"27",src:"img/Fo0r3wx8r04anI8_RSjUMLJsDuHm.jpg",goods_id:"7011",price:"109.00"},
 	{title:"钥匙包·正品",name:"無象",liked:"1",src:"img/Ft-W8WQ3RJWeL8ueWqWqKQOEWPYD.jpg",goods_id:"7012",price:"109.00"}
 	]},
-	{id:'008',title:"一种不屈不挠的匠人精神 忠于原创与自我的执着",name:"S&H",img:"img/Fs49gKYjccDqplPdKfv-bW1TVg1x.jpg",arr:[
+	{id:'008',title:"一种不屈不挠的匠人精神",name:"S&H",img:"img/Fs49gKYjccDqplPdKfv-bW1TVg1x.jpg",arr:[
 	{title:"玩偶·创意",name:"王",liked:"42",src:"img/FieGrIZ6AhD9K-4IV18FQNpfDmku.jpg",goods_id:"8001",price:"109.00"},
 	{title:"口金包·材料包",name:"王",liked:"30",src:"img/FrdmCbROJLGM8bojASf-97VOxRUV.jpg",goods_id:"8002",price:"109.00"},
 	{title:"包包·书包",name:"王",liked:"56",src:"img/Fmg_qwDOc2VR5Np9hIwK0Cbg-fl3.jpg",goods_id:"8003",price:"109.00"},

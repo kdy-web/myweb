@@ -135,6 +135,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+.state("tab.minesystem",{
+	 url: '/minesystem',
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-system.html',
+        controller: 'SystemCtrl'
+      }
+    }
+	
+})
+.state("tab.chatssystem",{
+	 url: '/chatssystem',
+    views: {
+      'tab-chats': {
+        templateUrl: 'templates/tab-system.html',
+        controller: 'SystemCtrl'
+      }
+    }
+	
+})
+.state("tab.guangsystem",{
+	 url: '/guangsystem',
+    views: {
+      'tab-guang': {
+        templateUrl: 'templates/tab-system.html',
+        controller: 'SystemCtrl'
+      }
+    }
+	
+})
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/zhuanti');
 
