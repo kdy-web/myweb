@@ -206,7 +206,9 @@ for(var i=0;i<$scope.data.length;i++){
  }
   $scope.loadMore=function(){
   	 $scope.index++;
+  	 $timeout(function(){
   	 loadData()
+  	 },1000)
   }
   function loadData(){
   	var index= $scope.index
@@ -214,8 +216,11 @@ for(var i=0;i<$scope.data.length;i++){
   		 $scope.hasmore=false;
   	}
   	else{
-  		 $scope.lastarr.push($scope.mydata[index]);
+  		
+  			 $scope.lastarr.push($scope.mydata[index]);
   		 $scope.$broadcast('scroll.infiniteScrollComplete');
+  		
+  		
   	}
   }
     $scope.jingstyle={

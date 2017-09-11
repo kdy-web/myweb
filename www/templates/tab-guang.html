@@ -193,9 +193,36 @@
 	height: 2.2rem;
 	border: 1px solid #333333;
 }
-.guangtab_swiper .swiper-slide:first-child{
-	
-}
+ .list_animation{
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0.5rem;
+				
+			}
+			.img_shake{
+				width: 0.7rem;
+				height: 0.5rem;
+				position: absolute;
+				bottom: -0.01rem;
+				animation: frame 3s infinite;
+				left: 3%;
+				z-index: 2;
+			}
+			@keyframes frame{
+				0%{left: 3%;transform: rotateY(0);}
+				49%{left: 82%;transform: rotateY(0);}
+				50%{left:86%;transform: rotateY(180deg);}
+				99%{left: 4%;transform: rotateY(180deg);}
+				100%{left: 3%;transform: rotateY(0)}
+			}
+			.img_line{
+				position: absolute;
+				width: 90%;
+				z-index: 1;
+				bottom: 0;
+				margin-left: 5%;
+			}
 	</style>
 	<div class="bar bar-header item-input-inset guang_header">
   <label class="item-input-wrapper guang_inp">
