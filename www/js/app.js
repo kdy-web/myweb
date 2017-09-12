@@ -175,6 +175,38 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
 	
 })
+.state("tab.youhui",{
+	 url: '/youhui',
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-youhui.html',
+        controller: 'YouhuiCtrl'
+      }
+    }
+	
+})
+.state("tab.advice",{
+	 url: '/advice',
+	 cache:false,
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-advice.html',
+        controller: 'AdviceCtrl'
+      }
+    }
+	
+})
+.state("tab.order",{
+	 url: '/order',
+	 
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-order.html',
+        controller: 'OrderCtrl'
+      }
+    }
+	
+})
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/zhuanti');
 

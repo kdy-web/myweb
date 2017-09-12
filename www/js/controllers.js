@@ -269,6 +269,10 @@ for(var i=0;i<$scope.data.length;i++){
 })
 
 .controller('MineCtrl', function($scope,$ionicModal,guide,$rootScope) {
+	$scope.order=function(){
+		window.location="#/tab/order"
+	}
+
 	$scope.goruzhu=function(){
 		window.location="#/tab/ruzhu"
 	}
@@ -281,7 +285,9 @@ for(var i=0;i<$scope.data.length;i++){
 	$scope.openModal=function(){
 		 $scope.modal.show();
 	}
-	
+	$scope.youhui=function(){
+		window.location="#/tab/youhui"
+	}
 	
 	
 	if(guide.get("person")){
@@ -665,8 +671,6 @@ var value=JSON.stringify($scope.obj)
 		}else{
 			console.log(2)
 			 $scope.showAlert()
-			
- 
 
 		}
 		
@@ -702,7 +706,35 @@ var value=JSON.stringify($scope.obj)
 	
 	
 })
+.controller("YouhuiCtrl",function($scope){
+	$scope.goback=function(){
+		window.location="#/tab/mine"
+		
+	}
+})
+.controller("AdviceCtrl",function($scope,$rootScope){
+	$scope.$on('$ionicView.beforeEnter',function(){
+		   if (location.href.indexOf("?xyz=")<0){
+		    	window.location.reload();//页面刷新一次
+			 location.href=location.href+"?xyz="+Math.random();
+			 }
 
+	})
+		document.getElementById("textarea").focus()
+	
+	$scope.goback=function(){
+		window.location="#/tab/mine"
+		
+	}
+	
+	
+})
+.controller("OrderCtrl",function($scope){
+	$scope.goback=function(){
+		window.location="#/tab/mine"
+		
+	}
+})
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',
