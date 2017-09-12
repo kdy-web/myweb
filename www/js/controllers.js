@@ -269,6 +269,9 @@ for(var i=0;i<$scope.data.length;i++){
 })
 
 .controller('MineCtrl', function($scope,$ionicModal,guide,$rootScope) {
+	$scope.goruzhu=function(){
+		window.location="#/tab/ruzhu"
+	}
 	 $ionicModal.fromTemplateUrl('templates/modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -593,6 +596,113 @@ var value=JSON.stringify($scope.obj)
  		}
  		
  })
+.controller("RuzhuCtrl",function($scope,$ionicPopup,$ionicModal){
+	
+	$ionicModal.fromTemplateUrl('templates/phone.html', {
+    scope: $scope,
+    animation: 'slide-in-right'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  console.log($scope.modal)
+	$scope.goback=function(){
+		window.location="#/tab/mine"
+	}
+
+	
+	$scope.showConfirm = function() {
+		 var confirmPopup = $ionicPopup.confirm({
+       title: '开店需要先绑定手机哟！',
+        buttons: [{ //Array[Object] (可选)。放在弹窗footer内的按钮。
+    text: '取消',
+    type: 'positive',
+    onTap: function(e) {
+      // 当点击时，e.preventDefault() 会阻止弹窗关闭。
+//    e.preventDefault();
+    }
+  }, {
+    text: '绑定手机',
+    type: 'positive',
+    onTap: function(e) {
+    	
+    
+      $scope.modal.show()
+     
+    }
+  }]
+      
+     });
+     
+     confirmPopup.then(function(res) {
+     	
+     	
+     	
+       if(res) {
+       	 console.log('You are not sure');
+       
+       } else {
+        
+       }
+     });
+   };
+}).controller("bangCtrl",function($scope,$ionicPopup,guide){
+	$scope.obj={}
+	$scope.arr={};
+	 $scope.showAlert = function() {
+     var alertPopup = $ionicPopup.alert({
+       title: '手机号错误'
+    
+     });
+    
+   };
+	var rex= /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/
+	$scope.queren=function(){
+		$scope.arr.number=$scope.obj.number
+		if(rex.test($scope.arr.number)){
+			var number=JSON.stringify($scope.arr)
+			guide.set("tel",number)
+			
+		}else{
+			console.log(2)
+			 $scope.showAlert()
+			
+ 
+
+		}
+		
+	}
+	$scope.Confirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+       title: '返回将中断判断流程,确认返回？',
+        buttons: [{ //Array[Object] (可选)。放在弹窗footer内的按钮。
+    text: '返回',
+    type: 'positive',
+    onTap: function(e) {
+    	$scope.modal.hide()
+      // 当点击时，e.preventDefault() 会阻止弹窗关闭。
+//    e.preventDefault();
+    }
+  }, {
+    text: '取消',
+    type: 'positive',
+    onTap: function(e) {
+      // 返回的值会导致处理给定的值。
+     
+    }
+  }]
+      
+     });
+     confirmPopup.then(function(res) {
+     	
+     	
+     	
+     });
+   };
+	
+	
+	
+})
+
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',
