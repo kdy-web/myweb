@@ -45,8 +45,8 @@
       </div>
   <ion-content style="margin-top:1.25rem ;background: #efeef4;">
    <div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
-   <div style="padding-left: 0.28rem;background: white;height: 1.8rem;" ng-click="img()">
-  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 1.8rem;" >
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;" ng-click="toimg()">
    
 <span style="font-size: 0.36rem;position: relative;bottom: 0.55rem;"> 头像</span>
 <img src="{{src}}" style="width: 1.6rem;height: 1.6rem;border-radius: 50%;position: relative;left:3rem;top: 0.1rem;"/>
@@ -54,6 +54,115 @@
   </a>
 
  </div>
- 
+  <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" ng-click="toname()">
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 昵称</span>
+<span style="position: relative;left:3.3rem;"/>{{name}}</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+  <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" ng-click="tosex()">
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> sex</span>
+<span style="position: relative;left:3.6rem;"/>{{sex}}</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+ <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" ng-click="todate()">
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 生日</span>
+<span style="position: relative;left:3rem;"/>1970-01-01</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+ <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" ng-click="todate()">
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 简介</span>
+<span style="position: relative;left:3rem;"/></span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+ <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" >
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 更改背景</span>
+<span style="position: relative;left:3rem;"/></span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+   <div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
+    <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" >
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 个性标签</span>
+<span style="position: relative;left:3rem;"/>修改</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+  <div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
+    <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" ng-click="gotel()">
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 手机号码</span>
+<span style="position: relative;left:2.4rem;"/>{{telephone.data}}</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+  <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" >
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 收货地址</span>
+<span style="position: relative;left:2.4rem;"/></span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+ <div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
+  <div style="border-bottom:#d3d3d3 1px solid ;padding-left: 0.28rem;background: white;height: 0.9rem;padding-top: 0.25rem;" ng-click="gotel()">
+  <a class="item item-icon-left  item-icon-right"  style="border: none;margin-bottom: 0.02rem;padding:0 ;">
+   
+<span style="font-size: 0.36rem;position: relative;"> 第三方账号</span>
+<span style="position: relative;left:2.4rem;"/></span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
   </ion-content>
+  <script id="templates/phone.html" type="text/ng-template">
+  	<ion-modal-view ng-controller="bangCtrl">
+           <div class="jingxuan_header">
+    	<div style="width:100%;height: 0.5rem;"></div>
+    	<div class="row row_jingxuan_header" style="width: 100%;height: 0.75rem;padding: 0;">
+    <div class="col col-20">
+<button class="button button-icon jingxuan_button icon ion-ios-arrow-left light" ng-click="Confirm()">
+
+</button></div>
+<div class="col col-offset-17">
+<div class="jingxuan_title">绑定手机</div>
+</div>
+     </div>
+      </div>
+      <div class="list list-inset">
+					  <label class="item item-input">
+					    <input type="text" placeholder="请输入手机号码" ng-model="obj.number" ng-blur="shiqu()">
+					  </label>
+					  <label class="item item-input" style="position:relative;">
+					    <input type="password" placeholder="请输入短信验证码" ng-model="obj.password" ng-blur="shiqu()">
+					    <div style="position: absolute;right: 0.2rem;top: 0.1rem;width: 2.5rem;height: 0.7rem;background: #CCCCCC;border-radius:0.05rem ;text-align: center;line-height: 0.7rem;">获取验证码</div>
+					  </label>
+					</div>
+					<div class="loginButton padding"><button class="button button-block "  style="background: #242424;color: white;"  ng-click="queren()"> 确认 </button> </div>
+        </ion-modal-view>
+  </script>
 </ion-view>

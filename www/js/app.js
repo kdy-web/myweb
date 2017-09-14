@@ -240,6 +240,39 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
 	
 })
+.state("tab.name",{
+	 url: '/name',
+	 
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-name.html',
+        controller: 'NameCtrl'
+      }
+    }
+	
+})
+.state("tab.sex",{
+	 url: '/sex',
+	 
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-sex.html',
+        controller: 'SexCtrl'
+      }
+    }
+	
+})
+.state("tab.date",{
+	 url: '/date',
+	 
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-date.html',
+        controller: 'DateCtrl'
+      }
+    }
+	
+})
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/zhuanti');
 

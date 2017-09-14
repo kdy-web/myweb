@@ -318,5 +318,35 @@ angular.module('starter.services', [])
 	]
 	return obj;
 })
+.factory("sex",function(){
+	var obj=[
+	{sex:"男",src:"img/icn_male.png"},
+	{sex:"女",src:"img/icn_female.png"}
 
-
+	]
+	return obj;
+})
+.factory("year",function(){
+	var obj=[]
+	for(var i=1900;i<=2017;i++){
+		obj.push(i)
+	}
+	
+	return obj;
+})
+.factory("month",function(){
+	var obj=[]
+	for(var i=1;i<=12;i++){
+		obj.push(i)
+	}
+	
+	return obj;
+})
+.factory("day",function(){
+	var obj=[]
+	for(var i=1;i<=30;i++){
+		obj.push(i)
+	}
+	
+	return obj;
+})

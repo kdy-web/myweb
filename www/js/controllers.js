@@ -268,8 +268,8 @@ for(var i=0;i<$scope.data.length;i++){
     	}
 })
 
-.controller('MineCtrl', function($scope,$ionicModal,guide,$rootScope) {
-	
+.controller('MineCtrl', function($scope,$ionicModal,guide,$rootScope,sex) {
+	$scope.sexData=sex
 	$scope.order=function(){
 		window.location="#/tab/order"
 	}
@@ -290,13 +290,21 @@ for(var i=0;i<$scope.data.length;i++){
 		window.location="#/tab/youhui"
 	}
 	
-	
 	if(guide.get("person")){
 		$rootScope.logined=true;
 		var x=JSON.parse(guide.get("message"));
 		$rootScope.src=x.src
+		$rootScope.name=x.name
+		$rootScope.sex=x.sex
 		console.log(x)
+		for(var i=0;i<$scope.sexData.length;i++){
+			if($rootScope.sex==$scope.sexData[i].sex){
+				$rootScope.sexImg=$scope.sexData[i].src
+			}
+		}
 	}else{
+		$rootScope.src="img/adam.jpg"
+		$rootScope.name="用户名	"
 		$rootScope.login=true;
 	}
 
@@ -429,7 +437,7 @@ $timeout(function(){
   	}
   }
 	
-}).controller("JingxuanCtrl",function($scope,$ionicHistory,$stateParams,goods_list,$timeout,$ionicLoading){
+}).controller("JingxuanCtrl",function($scope,$stateParams,goods_list,$timeout,$ionicLoading){
 $scope.$on('$ionicView.beforeEnter', function() {//视图进入
            if (location.href.indexOf("?xyz=")<0){
 		    	window.location.reload();//页面刷新一次
@@ -576,9 +584,9 @@ $scope.hasmore=true;
 		window.history.back()
 	}
 })
-.controller("TaskCtrl",function($scope,guide,$rootScope){
+.controller("TaskCtrl",function($scope,guide,$rootScope,sex){
     $scope.obj={};
-    
+    $scope.sexdata=sex
  $scope.doLogin=function(){
  	if(!guide.get("message")){
 	$scope.person={
@@ -587,11 +595,11 @@ $scope.hasmore=true;
 		sex:"男",
 		name:"用户名"
 	};
-	
+	$rootScope.sex=$scope.person.sex
 	}else{
 		$scope.person=guide.get("message")
 		$scope.message=JSON.parse(message)
-		console.log(typeof $scope.message)
+		
 	}
 var value=JSON.stringify($scope.obj)
 var message=JSON.stringify($scope.person)
@@ -599,7 +607,11 @@ var message=JSON.stringify($scope.person)
  	guide.set("person",value)
  
  guide.set("message",message)
- 
+ for(var i=0;i<$scope.sexdata.length;i++){
+			if($scope.sexdata[i].sex==$rootScope.sex){
+				$rootScope.sexImg=$scope.sexdata[i].src
+			}
+		}
  	
  		$scope.modal.hide();
  		$rootScope.logined=true;
@@ -689,7 +701,7 @@ var message=JSON.stringify($scope.person)
 		if(rex.test($scope.arr.number)){
 			var number=JSON.stringify($scope.arr)
 			guide.set("tel",number)
-			
+			$scope.modal.hide()
 		}else{
 			console.log(2)
 			 $scope.showAlert()
@@ -831,13 +843,52 @@ $('.order_nav ul  li').eq(x).css({"color": "#d2a919"}).siblings().css({"color": 
 	
 	}
 })
-.controller("MessageCtrl",function($scope,guide,$rootScope){
-	$scope.img=function(){
+.controller("MessageCtrl",function($scope,guide,$rootScope,$timeout,$ionicModal){
+	$ionicModal.fromTemplateUrl('templates/phone.html', {
+    scope: $scope,
+    animation: 'slide-in-right'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  console.log($scope.modal)
+	$scope.goback=function(){
+		window.location="#/tab/mine"
+	}
+	$scope.telephone={};
+if(!guide.get("tel")){
+	$scope.telephone.data="未绑定";
+}else{
+	$scope.telephone.data=JSON.parse(guide.get("tel")).number
+	console.log($scope.telephone.data)
+}
+$scope.gotel=function(){
+	if(!guide.get("tel")){
+		 $scope.modal.show()
+	}
+	
+}
+
+	$scope.toimg=function(){
 		window.location="#/tab/img"
+	}
+	$scope.todate=function(){
+		window.location="#/tab/date"
 	}
 	var x=JSON.parse(guide.get("message"))
 	console.log(x)
+	
+		
 	$rootScope.src=x.src
+	$rootScope.name=x.name
+	$rootScope.sex=x.sex
+	console.log($rootScope.name)
+
+	$scope.toname=function(){
+		window.location="#/tab/name"
+	}
+	$scope.tosex=function(){
+		window.location="#/tab/sex"
+	}
 	$scope.goback=function(){
 		window.location="#/tab/set"
 		
@@ -857,7 +908,93 @@ $('.order_nav ul  li').eq(x).css({"color": "#d2a919"}).siblings().css({"color": 
 		window.location="#/tab/message"
 	}
 })
+.controller("NameCtrl",function($scope,guide,$rootScope){
+	$scope.$on('$ionicView.beforeEnter', function() {//视图进入
+           if (location.href.indexOf("?xyz=")<0){
+		    	window.location.reload();//页面刷新一次
+			 location.href=location.href+"?xyz="+Math.random();
+			 }
+      });
+	document.getElementById("nameChange").focus()
+	var x=JSON.parse(guide.get("message"))
+	$scope.obj={}
+	$scope.obj.name=x.name
+	console.log($scope.obj.name)
+	$scope.goback=function(){
+		window.location="#/tab/message"
+	}
+	$scope.save=function(){
+		console.log($scope.obj.name)
+		x.name=$scope.obj.name
+		
+	guide.set("message",JSON.stringify(x))
+	console.log(x)
+	$rootScope.name=$scope.obj.name
+	window.location="#/tab/message"
+	}
+})
+.controller("SexCtrl",function($scope,$rootScope,guide,sex){
+	var x=JSON.parse(guide.get("message"))
+	
+	$scope.data=sex
+	console.log($scope.data)
+	if(x.sex==$scope.data[0].sex){
+		console.log(1)
+		$scope.obj={
+		 clientSide: '男'
+	}
+	}else{
+		$scope.obj={
+		 clientSide: '女'
+	}
+	}
+	console.log($scope.obj.clientSide)
+	$scope.sexchange=function(item){
+		$rootScope.sex=item.sex
+		
+	}
+	$scope.goback=function(){
+		window.location="#/tab/message"
+	}
+	$scope.save=function(){
+		x.sex=$rootScope.sex
+		console.log(x)
+		guide.set("message",x)
+		for(var i=0;i<$scope.data.length;i++){
+			if($scope.data[i].sex==$rootScope.sex){
+				$rootScope.sexImg=$scope.data[i].src
+			}
+		}
+		window.location="#/tab/message"
+	}
+})
+.controller("DateCtrl",function($scope,year,day,month,guide){
+	$scope.year=year;
+	$scope.month=month;
+	$scope.day=day;
+	var x=JSON.parse(guide.get("message"))
+	var y=x.date.split("-")
+	console.log(y)
+$scope.obj={
+	yeardate:y[0],
+	monthdate:y[1],
+	daydate:y[2]
+}
+$scope.change=function(item){
+	console.log(item)
+}
+$scope.save=function(){
+		
+		x.date=$scope.obj.yeardate+"-"+$scope.obj.monthdate+"-"+$scope.obj.daydate
+		console.log(x.date)
+	guide.set("message",JSON.stringify(x))
+	console.log(x)
+	$rootScope.name=$scope.obj.name
+	window.location="#/tab/message"
+	}
 
+
+})
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',
