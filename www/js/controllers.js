@@ -269,6 +269,7 @@ for(var i=0;i<$scope.data.length;i++){
 })
 
 .controller('MineCtrl', function($scope,$ionicModal,guide,$rootScope) {
+	
 	$scope.order=function(){
 		window.location="#/tab/order"
 	}
@@ -292,6 +293,9 @@ for(var i=0;i<$scope.data.length;i++){
 	
 	if(guide.get("person")){
 		$rootScope.logined=true;
+		var x=JSON.parse(guide.get("message"));
+		$rootScope.src=x.src
+		console.log(x)
 	}else{
 		$rootScope.login=true;
 	}
@@ -842,13 +846,15 @@ $('.order_nav ul  li').eq(x).css({"color": "#d2a919"}).siblings().css({"color": 
 .controller('ImgCtrl',function(guide,$scope,img,$rootScope){
 	
 	$scope.img=img
-
 	$scope.file=function(src){
 	var x=JSON.parse(guide.get("message"))
 	x.src=src
 	$rootScope.src=x.src
 	guide.set("message",JSON.stringify(x))
-		
+		window.location="#/tab/message"
+	}
+	$scope.goback=function(){
+		window.location="#/tab/message"
 	}
 })
 
