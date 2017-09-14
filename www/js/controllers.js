@@ -295,7 +295,7 @@ for(var i=0;i<$scope.data.length;i++){
 	}else{
 		$rootScope.login=true;
 	}
-	$scope
+
   $scope.goSystem=function(){
   	window.location="#/tab/minesystem"
   }
@@ -573,12 +573,30 @@ $scope.hasmore=true;
 	}
 })
 .controller("TaskCtrl",function($scope,guide,$rootScope){
-$scope.obj={};
-	
+    $scope.obj={};
+    
  $scope.doLogin=function(){
+ 	if(!guide.get("message")){
+	$scope.person={
+		src:"img/adam.jpg",
+		date:"1970-01-01",
+		sex:"男",
+		name:"用户名"
+	};
+	
+	}else{
+		$scope.person=guide.get("message")
+		$scope.message=JSON.parse(message)
+		console.log(typeof $scope.message)
+	}
 var value=JSON.stringify($scope.obj)
- 	console.log(value)
+var message=JSON.stringify($scope.person)
+ 	
  	guide.set("person",value)
+ 
+ guide.set("message",message)
+ 
+ 	
  		$scope.modal.hide();
  		$rootScope.logined=true;
  		$rootScope.login=false;
@@ -594,7 +612,7 @@ var value=JSON.stringify($scope.obj)
  	
  		
  	}
- 	
+ 		
  	}
  		
  		$scope.close=function(){
@@ -729,9 +747,93 @@ var value=JSON.stringify($scope.obj)
 	
 	
 })
-.controller("OrderCtrl",function($scope){
+.controller("OrderCtrl",function($scope,$ionicModal){
+	 $ionicModal.fromTemplateUrl('templates/order_tuihuo.html', {
+    scope: $scope,
+    animation: 'slide-in-right'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+	
+	
+	$('.order_nav ul  li').eq(0).css({"color": "#d2a919"})
+	 var swiper = new Swiper('.order_slide',{
+	 	speed:300,
+	 	autoHeight:true,
+        autoplayDisableOnInteraction:false,
+	 	onSlideChangeEnd:function(swiper){
+				var x=swiper.activeIndex
+				var left;
+				if(x==0){
+					$(".order_heng").css("width","0.6rem")
+					left="6%"
+				}else{
+					$(".order_heng").css("width","1rem")
+					 left=(x*20+3.5)+"%"
+				}
+				
+				$(".order_heng").animate({"left":left},100)
+
+$('.order_nav ul  li').eq(x).css({"color": "#d2a919"}).siblings().css({"color": "#161616"})	
+   
+}
+	 });
+	$('.order_nav ul  li').click(function(){
+			var index=$(this).index()
+			swiper.slideTo(index,300)
+		})
+	
 	$scope.goback=function(){
 		window.location="#/tab/mine"
+		
+	}
+})
+.controller("OrdertuihuoCtrl",function($scope){
+	$scope.goback=function(){
+		$scope.modal.hide()
+		
+	}
+})
+.controller("SetCtrl",function($scope,guide,$ionicModal,$rootScope){
+	$scope.quit=function(){
+		guide.remove("message")
+		guide.remove("person")
+			$scope.modal.show()
+	}
+	$scope.goback=function(){
+		window.location="#/tab/mine"
+		
+	if(guide.get("person")){
+		$rootScope.logined=true;
+		$rootScope.login=false;
+	}else{
+			$rootScope.logined=false;
+		$rootScope.login=true;
+	}
+
+	}
+	 $ionicModal.fromTemplateUrl('templates/modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+	$scope.message=function(){
+		if(guide.get("person")){
+				window.location="#/tab/message"
+		}else{
+			$scope.modal.show()
+		}
+	
+	}
+})
+.controller("MessageCtrl",function($scope,guide){
+	
+	var x=JSON.parse(guide.get("message"))
+	console.log(x)
+	$scope.src=x.src
+	$scope.goback=function(){
+		window.location="#/tab/set"
 		
 	}
 })

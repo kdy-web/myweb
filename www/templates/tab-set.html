@@ -1,0 +1,111 @@
+<ion-view hide-nav-bar="true" hide-tabs="true">
+	<style type="text/css">
+				.row_jingxuan_header{
+			position: relative;
+		}
+		.jingxuan_header{
+			height: 1.25rem;
+			background: #242424;
+		}
+		.jingxuan_button{
+			width: 0.4rem;
+			height: 0.50rem;
+		position: relative;
+		bottom: 0.2rem;
+		left: 0.4rem;
+		float: left;
+			margin-bottom: 0.4rem;
+		}
+		.jingxuan_title{
+		
+			text-align:left;
+			color: white;
+			font-size: 0.4rem;
+		}
+		.col-offset-23{
+			margin-left: 23%;
+		}
+		.slide-in-right {  -webkit-transform: translateX(-100%);  transform: translateX(100%);}.slide-in-right.ng-enter, .slide-in-right > .ng-enter {  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;}.slide-in-right.ng-enter-active, .slide-in-right > .ng-enter-active {  -webkit-transform: translateX(0);  transform: translateX(0);}.slide-in-right.ng-leave, .slide-in-right > .ng-leave {  -webkit-transition: all ease-in-out 250ms;  transition: all ease-in-out 250ms;}.
+
+.slide-in-left {  -webkit-transform: translateX(-100%);  transform: translateX(100%);}.slide-in-left.ng-enter, .slide-in-left > .ng-enter {  -webkit-transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;  transition: all cubic-bezier(0.1, 0.7, 0.1, 1) 400ms;}.slide-in-left.ng-enter-active, .slide-in-left > .ng-enter-active {  -webkit-transform: translateX(0);  transform: translateX(0);}.slide-in-left.ng-leave, .slide-in-left > .ng-leave {  -webkit-transition: all ease-in-out 250ms;  transition: all ease-in-out 250ms;}
+
+	</style>
+	<div class="jingxuan_header">
+    	<div style="width:100%;height: 0.5rem;"></div>
+    	<div class="row row_jingxuan_header" style="width: 100%;height: 0.75rem;padding: 0;">
+    <div class="col col-20">
+<button class="button button-icon jingxuan_button icon ion-ios-arrow-left light" ng-click="goback()">
+
+</button></div>
+<div class="col col-offset-23">
+<div class="jingxuan_title" style="float:left ;">设置</div>
+
+</div>
+     </div>
+      </div>
+  <ion-content style="margin-top: 1.25rem;background: #efeef4;">
+  	<div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
+
+ <div style="position: relative;top:0.02rem;padding-left: 0.28rem;background: white;">
+  <a class="item item-icon-left  item-icon-right" ng-click="message()" style="border: none;border-bottom: 1px solid #d3d3d3;margin-bottom: 0.02rem;padding-left:0 ;">
+   
+<span > 个人信息</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+ <a class="item item-icon-left  item-icon-right" href="#/tab/address" style="border: none;padding-left:0 ;">
+    
+ <span > 收货地址</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+ </div>
+ <div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
+
+ <div style="position: relative;top:0.02rem;padding-left: 0.28rem;background: white;">
+  <a class="item item-icon-left  item-icon-right" href="#/tab/message" style="border: none;margin-bottom: 0.02rem;padding-left:0 ;">
+   
+<span > 清除缓存</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+ <div style="height: 0.28rem;background: #f0f0f0;border-bottom:#d3d3d3 1px solid ;"></div>
+
+ <div style="background: white;position: relative;top:0.02rem;padding-left: 0.28rem;border-bottom:#d3d3d3 1px solid ;">
+  <a class="item item-icon-left  item-icon-right" href="#/tab/message" style="border: none;margin-bottom: 0.02rem;padding-left:0 ;">
+   
+<span > 关于想去</span>
+     <i class="icon  ion-chevron-right" style="color: #c9c9c9;font-size: 0.3rem;"></i>
+  </a>
+
+ </div>
+ <div style="background: white;font-size: 0.32rem;color: #878787;height: 1.1rem;line-height: 0.4rem;padding-top: 0.2rem;padding-left: 0.2rem;">
+ 	<i><img src="img/1505299313(1).jpg" style="width: 0.32rem;height: 0.32rem;position: relative;top: 0.02rem;margin-right: 0.01rem;"</i>加想去君微信: hela798(点击复制) ,成为本君好友,超多朋友福利,带你认识更多设计师哦~
+ </div>
+<div style="padding-top: 0.5rem;text-align: center;">
+	<button style="width: 6.6rem;height: 0.85rem;background: #d81c1b;color: white;font-size: 0.42rem;text-align: center;border: none;" ng-click="quit()">退出登录</button>
+</div>
+  </ion-content>
+    <script id="templates/modal.html" type="text/ng-template">
+  <div id="task-view" class="modal slide-in-up" ng-controller="TaskCtrl">
+   	<header class="modal_heaer">
+   		<div style="width:100%;height: 0.5rem;"></div>
+   		<div style="width: 100%;" class="row">
+   		<div class="col col-20"><i class="icon ion-ios-close-empty light" style="font-size: 1rem;position: relative;bottom: 0.4rem;left: 0.2rem;" ng-click="close()"></i></div>
+						<div class="col col-offset-20" style="color: white;font-size: 0.36rem;position: relative;bottom: 0.1rem;">密码登录</div>
+						<div class="col" style="color: white;text-align: right;margin-right: 0.1rem;position: relative;bottom: 0.1rem;">短信登录</div>
+						</div>
+					</header>
+    <ion-content style="margin-top: 1.25rem;">
+     <div class="list list-inset">
+					  <label class="item item-input">
+					    <input type="text" placeholder="用户名" ng-model="obj.name" ng-blur="shiqu()">
+					  </label>
+					  <label class="item item-input">
+					    <input type="password" placeholder="密码" ng-model="obj.password" ng-blur="shiqu()">
+					  </label>
+					</div>
+					 <div class="loginButton padding"><button class="button button-block "  style="background: #242424;color: white;" ng-disabled="login" ng-click="doLogin()"> 登录 </button> </div>
+    </ion-content>
+  </div>
+</script>
+</ion-view>

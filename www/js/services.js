@@ -7,8 +7,10 @@ angular.module('starter.services', [])
 			},
 			get:function(key,defaultValue){
 					return $window.localStorage[key] || defaultValue;
+			},
+			remove:function(key){
+				return   $window.localStorage.removeItem(key)
 			}
-			
 			
 		}
 	
