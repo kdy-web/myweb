@@ -308,3 +308,15 @@ angular.module('starter.services', [])
 	return obj;
 	
 })
+.factory("img",function(){
+	var obj=[
+	{src:"img/adam.jpg"},
+	{src:"img/max.png"},
+	{src:"img/mike.png"},
+	{src:"img/perry.png"},
+	{src:"img/ben.png"}
+	]
+	return obj;
+})
+
+

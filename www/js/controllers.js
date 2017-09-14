@@ -827,16 +827,31 @@ $('.order_nav ul  li').eq(x).css({"color": "#d2a919"}).siblings().css({"color": 
 	
 	}
 })
-.controller("MessageCtrl",function($scope,guide){
-	
+.controller("MessageCtrl",function($scope,guide,$rootScope){
+	$scope.img=function(){
+		window.location="#/tab/img"
+	}
 	var x=JSON.parse(guide.get("message"))
 	console.log(x)
-	$scope.src=x.src
+	$rootScope.src=x.src
 	$scope.goback=function(){
 		window.location="#/tab/set"
 		
 	}
 })
+.controller('ImgCtrl',function(guide,$scope,img,$rootScope){
+	
+	$scope.img=img
+
+	$scope.file=function(src){
+	var x=JSON.parse(guide.get("message"))
+	x.src=src
+	$rootScope.src=x.src
+	guide.set("message",JSON.stringify(x))
+		
+	}
+})
+
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',
