@@ -99,7 +99,7 @@
       	<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
 	<div >
    	<div class="row jx_row" ng-repeat="jx in firstArr">
-   		<div class="col" ng-repeat="jxcol in jx">
+   		<div class="col" ng-repeat="jxcol in jx" ng-click="godetails(jxcol.goods_id)">
    			<div><img src="{{jxcol.src}}" />
    			<div class="jx_price">￥ {{jxcol.price}}</div>
    			</div>

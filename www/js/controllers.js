@@ -498,7 +498,10 @@ $scope.hasmore=true;
 	$scope.goback=function(){
 		window.location="#/tab/zhuangti"
 	}
-	
+	$scope.godetails=function(id){
+		console.log(1)
+	window.location="#/tab/details/"+id
+}
 })
 .controller("DesignerCtrl",function($scope,$stateParams,designer){
 	$scope.id=$stateParams.designerId
@@ -685,7 +688,7 @@ var message=JSON.stringify($scope.person)
        }
      });
    };
-}).controller("bangCtrl",function($scope,$ionicPopup,guide){
+}).controller("bangCtrl",function($scope,$ionicPopup,guide,$rootScope){
 	$scope.obj={}
 	$scope.arr={};
 	 $scope.showAlert = function() {
@@ -699,6 +702,7 @@ var message=JSON.stringify($scope.person)
 	$scope.queren=function(){
 		$scope.arr.number=$scope.obj.number
 		if(rex.test($scope.arr.number)){
+			$rootScope.telephoneData=$scope.arr.number
 			var number=JSON.stringify($scope.arr)
 			guide.set("tel",number)
 			$scope.modal.hide()
@@ -814,6 +818,7 @@ $('.order_nav ul  li').eq(x).css({"color": "#d2a919"}).siblings().css({"color": 
 	$scope.quit=function(){
 		guide.remove("message")
 		guide.remove("person")
+		guide.remove("tel")
 			$scope.modal.show()
 	}
 	$scope.goback=function(){
@@ -856,9 +861,11 @@ $('.order_nav ul  li').eq(x).css({"color": "#d2a919"}).siblings().css({"color": 
 	}
 	$scope.telephone={};
 if(!guide.get("tel")){
-	$scope.telephone.data="未绑定";
+
+	$rootScope.telephoneData="未绑定"
 }else{
-	$scope.telephone.data=JSON.parse(guide.get("tel")).number
+	$rootScope.telephoneData=JSON.parse(guide.get("tel")).number
+	
 	console.log($scope.telephone.data)
 }
 $scope.gotel=function(){
@@ -994,6 +1001,10 @@ $scope.save=function(){
 	}
 
 
+})
+
+.controller("DetailsCtrl",function($scope){
+	
 })
 .directive('hideTabs', function($rootScope) {
     return {

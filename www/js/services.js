@@ -350,3 +350,15 @@ angular.module('starter.services', [])
 	
 	return obj;
 })
+.factory("details",function(){
+	var obj=[
+	{goods_id:"1001",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",name:"爱的涟漪。S925纯银简约时尚清新淡雅个性开口戒指 英文only love you只爱你 情侣对戒指环之情人节",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,arr:{src:["img/img/微信图片_20170914225422.jpg","img/微信图片_20170914225428.jpg","img/微信图片_20170914225430.jpg","img/微信图片_20170914225433.jpg"],bigimg:["img/Fm0SoAXRVX2LeUhjDgfmJnqFwYol.jpg"]}},
+	{goods_id:"1002",name:"S925纯银时尚精致靓丽清新淡雅微镶钻叶子项链套链",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,arr:{src:["img/微信图片_20170914231220.jpg","img/微信图片_20170914231223.jpg","img/微信图片_20170914231225.jpg","img/微信图片_20170914231228.jpg","img/微信图片_20170914231231.jpg"],bigimg:["img/Fp6anKrf4_EvfAkEy6OFJeLsxz5X.jpg","img/FrlIdm21c7qVe8YAdrDtREP8TWMM.jpg","img/FsWyh5rMdVnSeD0qQcWzWwXaLCwK.jpg","img/Fjih_QbJ5JFC_LqMrPkrN1uhbRw0.jpg","img/FqCngoErMFhpWkYizVVPywXsv94n.jpg","img/Fss0BxNJoQJcfl_ymqx6J-Jvp1mx.jpg","img/FpveHxwhneK4hTCVV2pIgNhBatc7.jpg","img/Fv71g2wL0KyMkxoJHegW--MjY0Xp.jpg"]}},
+	{goods_id:"1003",name:"【现货】S925纯银时尚别致泰银紧箍咒戒指个性民族做旧指环花纹开口食指戒男女情侣戒指礼物",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,arr:{src:["img/微信图片_20170914191259.jpg","img/微信图片_20170914191257.jpg","img/微信图片_20170914191254.jpg"],bigimg:["img/微信图片_20170914190940.jpg"]}},
+	{goods_id:"1004",name:"海誓山盟。S925纯银原创手工设计指环 极简清新文艺个性时尚对戒 开口可调情侣戒指",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,arr:{src:["img/微信图片_20170914232628.jpg","img/微信图片_20170914232630.jpg","img/微信图片_20170914232633.jpg","img/微信图片_20170914232636.jpg","img/微信图片_20170914232638.jpg"],bigimg:["img/FhCh12fX0hNiyuujvfGS6bC-hMNC.jpg","img/FpjWuFw68OmB1InipBJF5ukkLZjV.jpg","img/FnRkXk832wuNRwEaw7bjgzlkptH6.jpg","img/FhiQ14u-N0LctDOPhgz-yhD5W8wr.jpg","img/FhlOeRXsIp2D3lbI_fUCQV3-Vk-C.jpg","img/Fi2xhzZw0PfqaLNywIyM6cZgSjUG.jpg","img/Fj1soN0IA_0Ads4jh-lq7E6Jk60L.jpg","img/FrIfFYfiVoBmJ9htIPHrXZ8AMdyt.jpg","img/Frv2YZ_mORfmDdvOU8ZDQmtCKaXx.jpg","img/Fu1jW2EtDsXhxegynjTNIjOhVsHc (1).jpg","img/FgAfkf5XTMQdUoFd-81z-8UJvFQK.jpg"]}},
+	]
+})
