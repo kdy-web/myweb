@@ -752,13 +752,10 @@ var message=JSON.stringify($scope.person)
 })
 .controller("AdviceCtrl",function($scope,$rootScope){
 	$scope.$on('$ionicView.beforeEnter',function(){
-		   if (location.href.indexOf("?xyz=")<0){
-		    	window.location.reload();//页面刷新一次
-			 location.href=location.href+"?xyz="+Math.random();
-			 }
-
+		  $scope.doRefresh()
+document.getElementById("textarea").focus()
 	})
-		document.getElementById("textarea").focus()
+		
 	
 	$scope.goback=function(){
 		window.location="#/tab/mine"
