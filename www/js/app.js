@@ -187,7 +187,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 .state("tab.advice",{
 	 url: '/advice',
-	 cache:false,
+	 cache:true,
     views: {
       'tab-mine': {
         templateUrl: 'templates/tab-advice.html',
