@@ -751,11 +751,8 @@ var message=JSON.stringify($scope.person)
 	}
 })
 .controller("AdviceCtrl",function($scope,$rootScope){
-	$scope.$on('$ionicView.beforeEnter',function(){
-		 
-document.getElementById("textarea").focus()
-	})
-		
+$state.go("tab.advice",{},{reload:true})
+		document.getElementById("textarea").focus()
 	
 	$scope.goback=function(){
 		window.location="#/tab/mine"
