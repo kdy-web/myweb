@@ -913,13 +913,13 @@ $scope.gotel=function(){
 	}
 })
 .controller("NameCtrl",function($scope,guide,$rootScope){
-	$scope.$on('$ionicView.beforeEnter', function() {//视图进入
-           if (location.href.indexOf("?xyz=")<0){
-		    	window.location.reload();//页面刷新一次
-			 location.href=location.href+"?xyz="+Math.random();
-			 }
-      });
-	document.getElementById("nameChange").focus()
+		$scope.$on('$ionicView.beforeEnter',function(){
+			document.getElementById("nameChange").focus()
+		  $scope.doRefresh()
+
+	})
+		
+	
 	var x=JSON.parse(guide.get("message"))
 	$scope.obj={}
 	$scope.obj.name=x.name
