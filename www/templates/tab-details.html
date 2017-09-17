@@ -1,8 +1,250 @@
-<ion-view view-title="{{chat.name}}" >
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
-  </ion-content>
+<ion-view hide-nav-bar="true" hide-tabs="true" >
+	<style type="text/css">
+		 .details_swiper {
+        width: 100%;
+      
+    }
+ .details_swiper    .swiper-slide{
+ 	width: 100%;
+
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+  
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        position: relative;
+    }
+    .details_top_swiper{
+    	width: 100%;
+    	height: 6rem;
+    	position: absolute;
+    	top: 0;
+    	
+    }
+    .details_top_swiper .details_swiper{
+    	 text-align: center;
+        font-size: 18px;
+        background: #fff;
+overflow: hidden;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .bigbox>div{
+    	padding:0.2rem;
+    }
+    .details_heng{
+    	position: absolute;
+    	width: 1.3rem;
+    	height: 0.04rem;
+    	background: #db9e21;
+    	left: 17%;
+    	top: 2.3rem;
+    }
+    .search_list{
+			width: 3rem;
+			float: left;
+			text-align: left;
+		}
+		.search_button{
+			padding-top:0.2rem ;
+			box-sizing: border-box;
+		}
+		.details_top{
+			position: fixed;
+			width:100%;
+			top: 0;
+		
+			
+			z-index: 9999;
+			padding-top: 0.5rem;
+			padding-left: 0.3rem;
+			padding-right: 0.3rem;
+		}
+		.details_bottom{
+			position: fixed;
+			bottom:0;
+			height: 1rem;z-index: 9999;
+		}
+		.newimg{
+			width: 1.5rem;
+			height: 1.5rem;
+			position: absolute;
+			left: 2rem;
+			bottom: -2rem;
+			transform: rotate(0deg);
+			z-index: 10000;
+		}
+	</style>
+	<div class="details_top" ng-style="top" >
+		<button ng-style="button"  class="button button-icon icon ion-ios-arrow-left light" style="width:0.9rem;height: 0.9rem;border: none;border-radius:50% ;background: #696a6e;" ng-click="goback()">
+			
+		</button>
+		<button ng-style="button" class="button button-icon icon ion-share light" style="float: right;width:0.9rem;height: 0.9rem;border: none;border-radius:50% ;background: #696a6e;margin-left: 0.16rem;"></button>
+		<button ng-style="button" class="button button-icon icon ion-ios-cart-outline light" style="float: right;width:0.9rem;height: 0.9rem;border: none;border-radius:50% ;background: #696a6e;position: relative;" ng-click="gocar({{goods_id}})">
+			
+		</button>
+	</div>
+	<div class="swiper-container details_swiper" >
+        <div class="swiper-wrapper">
+            <div  class="swiper-slide " >
+            	
+        <ion-scroll id="scrollone" delegate-handle="small"    style="width:100%;height:12rem;position: absolute;top: 0;">
+            	<div class="swiper-container details_top_swiper">
+            		 <div class="swiper-wrapper">
+            		 	<div class="swiper-slide details_swiper" ng-repeat="imgData in imgData.src">
+            		 		<div style="width: 100%;height: 100%;background: url({{imgData}}) no-repeat 0 -3rem;background-size:100% 200% ;"></div>
+            		 		
+            		 	
+            		 		</div>
+            		  
+            	</div>
+            	
+            	<div class="swiper-pagination"></div>
+            </div>
+            
+            <div class="bigbox" style="width: 100%;position: absolute;top: 6rem;">
+            	<p style="width: 100%;font-size: 0.3rem;font-weight:bold;text-align: left;">
+            		 			{{imgData.name}}
+            		 		</p>
+            			<div style="position: relative;height: 0.5rem;">
+            				
+            				<span style="text-align: left;font-size: 0.4rem; color: #c8aa47;position: absolute;left:0;">￥{{data.price}}</span>
+            				
+            			<i class="icon ion-ios-heart-outline" style="text-align: right;font-size: 0.4rem;color: #808080;position: absolute;right:0.25rem;"></i>
+            			</div>
+            			<div style="color: #8f8f8f;font-size: 0.26rem;text-align: left;position: relative;border-bottom: 1px dashed #e7e7e7;">包邮
+            			<span style="position: absolute;right: 0.26rem;">{{data.liked}}</span>
+            			</div>
+            			<div style="text-align: left;">
+            				<img src="img/QQ图片20170915164335.png"  style="position: relative;right: 0.2rem;"/>
+            			</div>
+            		<div style="text-align: left;">
+            				<img src="img/QQ图片20170915164847.png"  />
+            			</div>
+            			<div style="height: 0.23rem;background: #f0f0f0;"></div>
+            			
+            			<div style="line-height: 0.76rem;text-align: left;border-bottom:0.02rem solid #808080 ;">
+            				<img src="{{imgData.personImg}}" style="width: 0.56rem;height: 0.56rem;border-radius:50% ;margin-right: 0.25rem;margin-top: 0.2rem;"/> <span style="position: relative;bottom: 0.1rem;font-size:0.28rem;color: #808080;">主理人:</span>
+            				<span style="position: relative;bottom: 0.1rem;font-size:0.28rem;color: #000000;">{{imgData.person}}</span>
+            			</div>
+            			<div style="padding-top: 0.28rem;text-align: left;">
+            				<img src="img/user_default_avatar.jpg" style="width: 0.56rem;height: 0.56rem;border-radius:0.1rem;margin-right: 0.25rem;"/>
+            			<span style="position: relative;bottom: 0.1rem;font-size:0.28rem;color: #808080;">品牌:</span>
+            			<span style="position: relative;bottom: 0.1rem;font-size:0.28rem;color: #000000;">{{data.name}}</span>
+            			</div>
+            			<div style="width: 100%;height: 0.8rem;font-size:0.28rem;color: #808080;text-align: left;">
+            				{{imgData.title}}
+            			</div>
+            				<div style="height: 0.23rem;background: #f0f0f0;"></div>
+            				
+            			<div style="height: 1rem;">
+            				<i><img src="img/1505299313(1).jpg" style="width: 0.32rem;height: 0.32rem;position: relative;top: 0.02rem;margin-right: 0.01rem;"/></i>
+            				<span style="font-size: 0.26rem;text-align: left;">{{imgData.wx}}</span>
+            			</div>
+            			<div style="height: 0.23rem;background: #f0f0f0;"></div>
+            			<div style="padding-top: 0.1rem;">
+            				
+            				
+            					<img src="{{imgData.firstdes}}" />
+            				
+            			</div>
+            			<div >
+            				<p style="font-size: 0.26rem;text-align: left;">喜欢 {{data.liked}}</p>
+            				<div style="text-align: left;">
+            					<img ng-repeat="imgxihuan in imgxihuan" src="{{imgxihuan.src}}" style="width: 0.56rem;height: 0.56rem;border-radius:50% ;margin-right: 0.25rem;margin-top: 0.2rem;"/>
+            				</div>
+            			</div>
+            			
+            			
+            			<div class="row" style="height:1.2rem;padding: 0;">
+            				<img src="img/QQ图片20170916113241.png" style="width: 100%;"/>
+            			</div>
+            			
+            			<div style="height: 1rem;"></div>
+            			</div>
+            		 
+            		</ion-scroll>
+            		
+            		
+            </div>
+            <div class="swiper-slide ">
+            	 <ion-scroll id="scrolltwo" delegate-handle="big"    style="width:100%;height:12rem;position: absolute;top: 0;">
+            	<div style="height: 2.4rem;padding-top:1.6rem ;box-sizing: border-box;">
+            		<div class="row">
+            			<div class="details_heng"></div>
+            			<div class="col" ng-style="details_des" style="font-size: 0.32rem;" ng-click="godes()">
+            				商品描述
+            			</div>
+            			<div class="col" ng-style="details_dis"  style="font-size: 0.32rem;" ng-click="godis()">
+            				评论({{imgData.discount}})
+            			</div>
+            		</div>
+            	</div>
+            	<div ng-show="imgbox" style="padding-top: 0.1rem;">
+            			<img ng-repeat="bigImg in   imgData.bigimg" src="{{bigImg}}" />
+            	</div>
+            <div ng-show="disbox" style="background:#f0f0f0 ;">
+           <div class="item item-avatar" style="background: #FFFFFF;" ng-repeat="disdata in disdata ">
+    <img src="{{disdata.img}}">
+    <div class="search_list">
+    	 <h2>{{disdata.name}}</h2>
+    <p>{{disdata.dis}}</p>
+    </div>
+   <div class="search_button">
+   <p>{{disdata.time}}</p>
+   </div>
+  </div>
+  <div class="write_dis" style="background: #f7f7f7;height: 0.9rem;text-align: left;padding-top: 0.15rem;padding-left: 0.2rem;">
+  	<input ng-model="obj.str"  placeholder="写点评论" style="background: #FFFFFF;width:6rem;height: 0.6rem;"/><button style="border: none;color: #3282c7;font-size: 0.28rem;background: transparent;margin-left: 0.2rem;" ng-click="send()">发送</button>
+  	
+  </div>
+            </div>
+            <div style="padding-top: 0.2rem;">
+            	<p style="text-align: left;">相似商品</p>
+            	<ul style="width: 100%;padding-left: 0.15rem;">
+            		<li style="width: 2.3rem;height: 6.6em;margin-right: 0.05rem;float: left;" ng-repeat="more in more">
+            			<img src="{{more.src}}"  style="width: 100%;height:100%;"/>
+            		</li>
+            	</ul>
+            </div>
+            
+            	</ion-scroll>
+            </div>
+           
+        </div>
+        <!-- Add Pagination -->
+      
+    </div>
+    <div class="details_bottom">
+    	<div style="float: left;width: 1.45rem;height: 100%;">
+    		<img src="img/QQ图片20170917005829.png" style="width: 100%;height: auto;"/>
+    	</div>
+    	<div style="float:left;width: 2.9rem;background: #989ba4;color: white;text-align: center;line-height: 1rem;" ng-click="addcart()">
+    		加入购物车
+    	</div>
+    	<div style="float: left;width: 3.1rem;background: #161616;color: white;text-align: center;line-height: 1rem;">立即购买</div>
+    </div>
 </ion-view>

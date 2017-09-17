@@ -352,13 +352,27 @@ angular.module('starter.services', [])
 })
 .factory("details",function(){
 	var obj=[
-	{goods_id:"1001",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",name:"爱的涟漪。S925纯银简约时尚清新淡雅个性开口戒指 英文only love you只爱你 情侣对戒指环之情人节",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
-	,arr:{src:["img/img/微信图片_20170914225422.jpg","img/微信图片_20170914225428.jpg","img/微信图片_20170914225430.jpg","img/微信图片_20170914225433.jpg"],bigimg:["img/Fm0SoAXRVX2LeUhjDgfmJnqFwYol.jpg"]}},
-	{goods_id:"1002",name:"S925纯银时尚精致靓丽清新淡雅微镶钻叶子项链套链",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
-	,arr:{src:["img/微信图片_20170914231220.jpg","img/微信图片_20170914231223.jpg","img/微信图片_20170914231225.jpg","img/微信图片_20170914231228.jpg","img/微信图片_20170914231231.jpg"],bigimg:["img/Fp6anKrf4_EvfAkEy6OFJeLsxz5X.jpg","img/FrlIdm21c7qVe8YAdrDtREP8TWMM.jpg","img/FsWyh5rMdVnSeD0qQcWzWwXaLCwK.jpg","img/Fjih_QbJ5JFC_LqMrPkrN1uhbRw0.jpg","img/FqCngoErMFhpWkYizVVPywXsv94n.jpg","img/Fss0BxNJoQJcfl_ymqx6J-Jvp1mx.jpg","img/FpveHxwhneK4hTCVV2pIgNhBatc7.jpg","img/Fv71g2wL0KyMkxoJHegW--MjY0Xp.jpg"]}},
-	{goods_id:"1003",name:"【现货】S925纯银时尚别致泰银紧箍咒戒指个性民族做旧指环花纹开口食指戒男女情侣戒指礼物",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
-	,arr:{src:["img/微信图片_20170914191259.jpg","img/微信图片_20170914191257.jpg","img/微信图片_20170914191254.jpg"],bigimg:["img/微信图片_20170914190940.jpg"]}},
-	{goods_id:"1004",name:"海誓山盟。S925纯银原创手工设计指环 极简清新文艺个性时尚对戒 开口可调情侣戒指",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
-	,arr:{src:["img/微信图片_20170914232628.jpg","img/微信图片_20170914232630.jpg","img/微信图片_20170914232633.jpg","img/微信图片_20170914232636.jpg","img/微信图片_20170914232638.jpg"],bigimg:["img/FhCh12fX0hNiyuujvfGS6bC-hMNC.jpg","img/FpjWuFw68OmB1InipBJF5ukkLZjV.jpg","img/FnRkXk832wuNRwEaw7bjgzlkptH6.jpg","img/FhiQ14u-N0LctDOPhgz-yhD5W8wr.jpg","img/FhlOeRXsIp2D3lbI_fUCQV3-Vk-C.jpg","img/Fi2xhzZw0PfqaLNywIyM6cZgSjUG.jpg","img/Fj1soN0IA_0Ads4jh-lq7E6Jk60L.jpg","img/FrIfFYfiVoBmJ9htIPHrXZ8AMdyt.jpg","img/Frv2YZ_mORfmDdvOU8ZDQmtCKaXx.jpg","img/Fu1jW2EtDsXhxegynjTNIjOhVsHc (1).jpg","img/FgAfkf5XTMQdUoFd-81z-8UJvFQK.jpg"]}},
+	{goods_id:"1001",discount:4,personImg:"img/FpxA5Eaxr0R6LabQ8KQpDpg7yBVS.jpg",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",name:"爱的涟漪。S925纯银简约时尚清新淡雅个性开口戒指 英文only love you只爱你 情侣对戒指环之情人节",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,src:["img/微信图片_20170914225422.jpg","img/微信图片_20170914225428.jpg","img/微信图片_20170914225430.jpg","img/微信图片_20170914225433.jpg"],bigimg:["img/Fm0SoAXRVX2LeUhjDgfmJnqFwYol.jpg"]},
+	{goods_id:"1002",discount:8,personImg:"img/FpxA5Eaxr0R6LabQ8KQpDpg7yBVS.jpg",name:"S925纯银时尚精致靓丽清新淡雅微镶钻叶子项链套链",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,src:["img/微信图片_20170914231220.jpg","img/微信图片_20170914231223.jpg","img/微信图片_20170914231225.jpg","img/微信图片_20170914231228.jpg","img/微信图片_20170914231231.jpg"],bigimg:["img/Fp6anKrf4_EvfAkEy6OFJeLsxz5X.jpg","img/FrlIdm21c7qVe8YAdrDtREP8TWMM.jpg","img/FsWyh5rMdVnSeD0qQcWzWwXaLCwK.jpg","img/Fjih_QbJ5JFC_LqMrPkrN1uhbRw0.jpg","img/FqCngoErMFhpWkYizVVPywXsv94n.jpg","img/Fss0BxNJoQJcfl_ymqx6J-Jvp1mx.jpg","img/FpveHxwhneK4hTCVV2pIgNhBatc7.jpg","img/Fv71g2wL0KyMkxoJHegW--MjY0Xp.jpg"]},
+	{goods_id:"1003",discount:4,personImg:"img/FpxA5Eaxr0R6LabQ8KQpDpg7yBVS.jpg",name:"【现货】S925纯银时尚别致泰银紧箍咒戒指个性民族做旧指环花纹开口食指戒男女情侣戒指礼物",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,src:["img/微信图片_20170914191259.jpg","img/微信图片_20170914191257.jpg","img/微信图片_20170914191254.jpg"],bigimg:["img/微信图片_20170914190940.jpg"]},
+	{goods_id:"1004",discount:3,personImg:"img/FpxA5Eaxr0R6LabQ8KQpDpg7yBVS.jpg",name:"海誓山盟。S925纯银原创手工设计指环 极简清新文艺个性时尚对戒 开口可调情侣戒指",wx:"加想去君微信：beansyxj，成为本君好友，超多朋友福利，带你认识更多设计师哦～",person:"屿众·不同",title:"小众银饰品，放下浮躁，来点沉静的独特诠释个性",firstdes:"img/1505401644(1).png",lastdes:"img/1505401619(1).png"
+	,src:["img/微信图片_20170914232628.jpg","img/微信图片_20170914232630.jpg","img/微信图片_20170914232633.jpg","img/微信图片_20170914232636.jpg","img/微信图片_20170914232638.jpg"],bigimg:["img/FhCh12fX0hNiyuujvfGS6bC-hMNC.jpg","img/FpjWuFw68OmB1InipBJF5ukkLZjV.jpg","img/FnRkXk832wuNRwEaw7bjgzlkptH6.jpg","img/FhiQ14u-N0LctDOPhgz-yhD5W8wr.jpg","img/FhlOeRXsIp2D3lbI_fUCQV3-Vk-C.jpg","img/Fi2xhzZw0PfqaLNywIyM6cZgSjUG.jpg","img/Fj1soN0IA_0Ads4jh-lq7E6Jk60L.jpg","img/FrIfFYfiVoBmJ9htIPHrXZ8AMdyt.jpg","img/Frv2YZ_mORfmDdvOU8ZDQmtCKaXx.jpg","img/Fu1jW2EtDsXhxegynjTNIjOhVsHc (1).jpg","img/FgAfkf5XTMQdUoFd-81z-8UJvFQK.jpg"]},
 	]
+	return obj;
+})
+.factory("dis",function(){
+	var obj=[
+	{goods_id:"1001",arr:[{img:"img/ForqWKVrVsmaflRGUNRRHPayCPWX.jpg",name:"Bachelor",dis:"戒指可以 就是包装简陋",time:"09月09日 12:47"},{img:"img/ForqWKVrVsmaflRGUNRRHPayCPWX.jpg",name:"Bachelor",dis:"东西可以 就是包装有点简陋。",time:"09月09日 12:46"},{img:"img/FnBLVNE8vTHECDl4G-xbemPXepgn.jpg",name:"仙境咚锵",dis:"实物我给满分，",time:"08月13日 17:41"},{img:"img/Fqqqey4aWsHtjMoPCoTjuBb_HP5f.jpg",name:"歪an",dis:"炒鸡好看，喜欢",time:"07月28日 16:27"}]},
+	{goods_id:"1002",arr:[{img:"img/FmLftskEIG02eVJ8W_HUM4qykIdz.jpg",name:"怒陀螺",dis:"真的超级棒！！所有朋友都说好看。",time:"08月15日 21:20"},{img:"img/Fu_GD7m3U2EKLIug2QiZ1ryBnaVW.jpg",name:"陈吉吉",dis:"喜欢哈哈哈",time:"08月13日 04:59"},
+	{img:"img/FtrOewHgvBGtDrSChEG58zPcLqlq.jpg",name:"铁匠点心",dis:"嘿嘿嘿超搭的，闺蜜都问我是哪儿买的",time:"08月05日 16:20"},{img:"img/FqsHZPHNRfO1R9iBUW6HIVjSWR1g.jpg",name:"路过枭",dis:"给我的女朋友买的，女朋友说很好。",time:"07月30日 14:14"},{img:"img/FsH4mY371m7tSHeqJnitOVF8A_Zc.jpg",name:"胡维维",dis:"还不错，挺喜欢",time:"07月28日 01:39"},{img:"img/FuT5yX7WIHps-v5CP6jaBUvXHsvw.jpg",name:"年少补",dis:"质量都不错，也没有很粗糙。",time:"07月26日 00:43"},
+	{img:"img/FpdE3v0jIirrkIEel8Ti4TcPztuw.jpg",name:"小河仙",dis:"给我的女朋友买的，女朋友说很好。",time:"07月15日 13:29"},{img:"img/Fh1FKcI-LjZBT9mDDio0Ol_ku7fu.jpg",name:"棠myself",dis:"习惯性好评",time:"06月30日 14:24"}]},
+	{goods_id:"1003",arr:[{img:"img/FoZtP2SLX4bu_WrCppEfkfr5cXS-.jpg",name:"༒你嘟任你嘟༒",dis:"很好 态度很好的 质量好",time:"09月10日 19:07"},{img:"img/Flr2okjPPX10TFWf0x1JCmm5R3-m.jpg",name:"莫宁",dis:"帮朋友买的，朋友很满意，好评！",time:"08月14日 10:37"},{img:"img/FpYSlW-po6kO77ANi4wS8rBjMx2T.jpg",name:"静子汪汪",dis:"hin美，hin好搭",time:"08月09日 11:18"},{img:"img/FpYSlW-po6kO77ANi4wS8rBjMx2T.jpg",name:"静子汪汪",dis:"质量都不错，也没有很粗糙。",time:"07月26日 13:57"}]},
+	{goods_id:"1004",arr:[{img:"img/FpdE3v0jIirrkIEel8Ti4TcPztuw.jpg",name:"小河仙",dis:"完全物有所值，入",time:"08月12日 18:05"},{img:"img/FidbG-WOnhWarZ51r7eLU74WRQe7.jpg",name:"phoenix出没",dis:"好看是好看，价格稍贵了些",time:"07月29日 22:58"},{img:"img/FuT0XiPjCGd5YSwqAQvotBi8Latl.jpg",name:"电波少女",dis:"很好看哟，还是比较适合我的哈哈哈",time:"07月22日 11:45"}]}
+		
+		
+	]
+	return obj;
 })

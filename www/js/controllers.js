@@ -356,7 +356,7 @@ $timeout(function(){
 	    	$timeout(function(){
 	var typewriter=document.querySelectorAll(".slide"+$scope.id+" .slide_text")[0]
 	    		  console.log(typewriter)
-	    		   var n=20;
+	    		   var n=28;
       		   var code=typewriter.innerHTML;
        var  len=code.length;
      	typewriter.innerHTML=""
@@ -387,7 +387,7 @@ $timeout(function(){
       		console.log(swiper.activeIndex);
       		if(swiper.activeIndex<3){
       			var typewriter=document.querySelectorAll(".slide"+$scope.id+" .slide_text")[swiper.activeIndex];
-      		 var n=28;
+      		 var n=36;
       		   var code=typewriter.innerHTML;
        var  len=code.length;
        console.log(code)
@@ -752,10 +752,13 @@ var message=JSON.stringify($scope.person)
 })
 .controller("AdviceCtrl",function($scope,$rootScope){
 	$scope.$on('$ionicView.beforeEnter',function(){
-		  $scope.doRefresh()
-document.getElementById("textarea").focus()
+		   if (location.href.indexOf("?xyz=")<0){
+		    	window.location.reload();//页面刷新一次
+			 location.href=location.href+"?xyz="+Math.random();
+			 }
+
 	})
-		
+		document.getElementById("textarea").focus()
 	
 	$scope.goback=function(){
 		window.location="#/tab/mine"
@@ -913,13 +916,13 @@ $scope.gotel=function(){
 	}
 })
 .controller("NameCtrl",function($scope,guide,$rootScope){
-		$scope.$on('$ionicView.beforeEnter',function(){
-			document.getElementById("nameChange").focus()
-		  $scope.doRefresh()
-
-	})
-		
-	
+	$scope.$on('$ionicView.beforeEnter', function() {//视图进入
+           if (location.href.indexOf("?xyz=")<0){
+		    	window.location.reload();//页面刷新一次
+			 location.href=location.href+"?xyz="+Math.random();
+			 }
+      });
+	document.getElementById("nameChange").focus()
 	var x=JSON.parse(guide.get("message"))
 	$scope.obj={}
 	$scope.obj.name=x.name
@@ -1000,7 +1003,261 @@ $scope.save=function(){
 
 })
 
-.controller("DetailsCtrl",function($scope){
+.controller("DetailsCtrl",function($rootScope,guide,dis,img,$scope,$stateParams,details,goods_list,$ionicScrollDelegate){
+	
+  
+   $scope.imgxihuan=img
+   $scope.details_des={
+   	color:"#db9e21"
+   }
+   $scope.imgbox=true
+   $scope.godes=function(){
+   	$('.details_heng').animate({"left":"17%","width":"1.3rem"})
+   	 $scope.details_des={
+   	color:"#db9e21"
+   }
+   	 	$scope.details_dis={
+   			color:"#333333"
+   	}
+   	 $scope.imgbox=true
+   	 	 $scope.disbox=false
+   }
+   
+     $scope.godis=function(){
+   	 $scope.details_des={
+   	color:"#333333"
+   }
+   	  	$('.details_heng').animate({"left":"68%","width":"1rem"})
+   	$scope.details_dis={
+   			color:"#db9e21"
+   	}
+   	 $scope.imgbox=false
+   	 	 $scope.disbox=true
+   }
+   $scope.opacity=0;
+ 
+   
+  $("#scrollone").scroll(function(){
+  	
+  	
+  	$scope.opacity=$ionicScrollDelegate.$getByHandle('small').getScrollPosition().top/40
+  	
+  	if($ionicScrollDelegate.$getByHandle('small').getScrollPosition().top>35){
+  		console.log(1)
+  		 $scope.top={"background":"rgba(255,255,255,1)"}
+  		$scope.button={
+  			opacity:1,
+  			background:"#ffffff"
+  		}
+  		$('.details_top').children("button").removeClass("light").addClass("dark")
+  	}else{
+  		
+  		if($scope.opacity<0){
+  			$scope.opacity=0
+  		}else{
+  			$scope.opacity=$ionicScrollDelegate.$getByHandle('small').getScrollPosition().top/40
+  		}
+  		console.log($scope.opacity)
+  		 $scope.top={"background":"rgba(255,255,255,"+$scope.opacity+")"}
+  		 $scope.button={
+  	opacity:1-$scope.opacity,
+  	background:'#696a6e'
+  }
+  		 $('.details_top').children("button").removeClass("dark").addClass("light")
+  	}
+  	
+  	if($ionicScrollDelegate.$getByHandle('small').getScrollPosition().top>$ionicScrollDelegate.$getByHandle('small').getScrollView().__maxScrollTop){
+  			
+  			mySwiperOne.slideTo(1)
+  	}
+  	
+  })
+    $("#scrolltwo").scroll(function(){
+    	
+  	if($ionicScrollDelegate.$getByHandle('big').getScrollPosition().top<0){
+  		
+  			mySwiperOne.slideTo(0)
+  	}
+
+  })
+	  var mySwiperOne = new Swiper('.details_swiper', {
+    initialSlide :0,
+	    observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    observeParents:true,//修改swiper的父元素时，自动初始化swiper
+        paginationClickable: true,
+        direction: 'vertical'
+
+    });
+    mySwiperOne.detachEvents();
+    var mySwiperTwo = new Swiper('.details_top_swiper', {
+    initialSlide :0,
+	    observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    observeParents:true,//修改swiper的父元素时，自动初始化swiper
+        paginationClickable: true,
+          pagination: '.swiper-pagination'
+     
+
+    });
+    $scope.dis=dis
+$scope.goods_list=goods_list;
+	$scope.details=details
+	$scope.goods_id=$stateParams.goods_id;
+	console.log($scope.goods_id)
+	for(var i=0;i<$scope.goods_list.length;i++){
+		for(var j=0;j<$scope.goods_list[i].arr.length;j++){
+		
+			if($scope.goods_list[i].arr[j].goods_id==$scope.goods_id){
+				$scope.data=$scope.goods_list[i].arr[j]
+				$scope.bigdata=$scope.goods_list[i]
+				$rootScope.id=$scope.goods_list[i].id
+				console.log($scope.goods_list[i].id)
+				for(var h=0;h<$scope.bigdata.arr.length;h++){
+		if($scope.bigdata.arr[h].goods_id==$scope.goods_id){
+			console.log(1)
+			$scope.bigdata.arr.splice(h,1)
+		$scope.more=$scope.bigdata.arr.slice(0,6)
+		}
+	}
+			}
+		}
+	}
+	
+	for(var k=0;k<$scope.details.length;k++){
+		if($scope.details[k].goods_id==$scope.goods_id){
+			$scope.imgData=$scope.details[k]
+			
+		}
+	}
+	for(var z=0;z<$scope.dis.length;z++){
+		if($scope.dis[z].goods_id==$scope.goods_id){
+			$scope.disdata=$scope.dis[z].arr;
+			console.log($scope.disdata)
+		}
+	}
+	
+	var min=new Date().getMinutes()
+	var month=new Date().getMonth()+1
+	if(month<10){
+		month="0"+month
+	}
+	var hour=new Date().getHours()
+    var day=new Date().getDate()
+	
+	$scope.newdate=month+"月"+day+"日 "+hour+":"+min
+	console.log($scope.newdate)
+	$scope.send=function(){
+		$scope.obj={
+		
+	}
+   $scope.message=JSON.parse(guide.get("message"))
+		var newobj={}
+		newobj.img=$scope.message.src;
+		newobj.name=$scope.message.name;
+		newobj.dis=$scope.obj.str;
+		newobj.time=$scope.newdate;
+		$scope.obj.str=""
+		console.log(newobj)
+		$scope.disdata.unshift(newobj)
+		$scope.imgData.discount++
+	}
+	
+	if(!guide.get("shopping")){
+			guide.set("shopping","[]")
+			$scope.shoppingdata=JSON.parse(guide.get("shopping"))
+		}else{
+			$scope.shoppingdata=JSON.parse(guide.get("shopping"))
+		}
+	
+	$scope.addcart=function(){
+	
+		function checkishas(id){
+	
+		var ext=false;
+		for(var i=0;i<$scope.shoppingdata.length;i++){
+			if($scope.shoppingdata[i].id==$scope.goods_id){
+				ext=true;
+				break;
+			}	
+		}
+		return ext;
+	}
+	function updateNum(id){
+	
+	for(var i=0;i<$scope.shoppingdata.length;i++){
+		if($scope.shoppingdata[i].id==$scope.goods_id){
+			$scope.shoppingdata[i].pcount++;
+		}
+	}
+	var lisobj=JSON.stringify($scope.shoppingdata);
+	guide.set("shopping",lisobj);
+	
+}	
+		
+		
+		
+		if(checkishas($scope.goods_id)){
+			updateNum($scope.goods_id)	
+		}else{
+			
+				console.log(1)
+			var  shoppingobj={
+			id:$scope.goods_id,
+			name:$scope.imgData.name,
+			brand:$scope.data.name,
+			src:$scope.data.src,
+			pcount:1,
+			price:$scope.data.price
+		     }
+			$scope.shoppingdata.push(shoppingobj)	
+			var lisobj=JSON.stringify($scope.shoppingdata);
+	        guide.set("shopping",lisobj);
+		}
+	
+		
+		console.log($scope.shoppingdata)
+		
+		guide.set("shopping",JSON.stringify($scope.shoppingdata))
+		var str="<img src='"+$scope.data.src+"'/>"
+		$(str).addClass("newimg").appendTo("body");
+		$(".newimg").animate({"bottom":'1.5rem'},200,function(){
+			$(this).animate({"bottom":"11rem","transform":"rotate(1080deg)","left":"5rem"},500,function(){
+				$(this).hide()
+			})
+		})
+	
+		
+	}
+	$scope.goback=function(){
+		window.location="#/tab/jingxuan/"+$rootScope.id
+	}
+	$scope.gocar=function(id){
+		window.location="#/tab/car/"+id
+	}
+})
+.controller("CarCtrl",function($scope,guide,$stateParams,$ionicModal){
+	 $ionicModal.fromTemplateUrl('templates/modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+	
+	$scope.id=$stateParams.goods_id
+	$scope.goback=function(){
+		window.location="#/tab/details/"+$scope.id
+	}
+	if(!guide.get("shopping")){
+			guide.set("shopping","[]")
+			$scope.shoppingdata=JSON.parse(guide.get("shopping"))
+		}else{
+			$scope.shoppingdata=JSON.parse(guide.get("shopping"))
+		}
+	
+	 console.log($scope.shoppingdata)
+	 
+	
+})
+.controller("addCtrl",function($scope){
 	
 })
 .directive('hideTabs', function($rootScope) {

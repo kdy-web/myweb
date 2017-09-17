@@ -275,11 +275,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 })
 .state("tab.details",{
 	 url: '/details/:goods_id',
-	 
+	 cache:false,
     views: {
       'tab-zhuanti': {
         templateUrl: 'templates/tab-details.html',
         controller: 'DetailsCtrl'
+      }
+    }
+	
+})
+.state("tab.car",{
+	 url: '/car/:goods_id',
+	 cache:false,
+    views: {
+      'tab-zhuanti': {
+        templateUrl: 'templates/tab-car.html',
+        controller: 'CarCtrl'
       }
     }
 	
