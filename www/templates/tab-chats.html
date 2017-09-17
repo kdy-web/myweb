@@ -140,17 +140,24 @@ flex: 0 0 29%;
      </div>
       </div>
      <div ng-show="search" >
+     	<div ng-repeat="searchdata in searchdata">
      		 <div class="item item-avatar">
-    <img src="img/adam.jpg">
+    <img src="{{searchdata.src}}">
     <div class="search_list">
-    	 <h2>Marty McFly</h2>
-    <p>November 05, 1955</p>
+    	 <h2>{{searchdata.name}}</h2>
+    <p>{{searchdata.des}}</p>
     </div>
    <div class="search_button">
    	<button class="icon-left ion-android-add light-bg attention_button">关注</button></div>
   </div>
      <div class="padding" >
-     	原来被宠溺的女人，真的是一眼就会被望穿！
+     	<p>
+     		{{searchdata.title}}
+     	</p>
+     	<div>
+     		<img src="{{searchdata.img}}"  style="width: 100%;"/>
+     	</div>
+     </div>
      </div>
      </div>
      <div ng-show="attention" >

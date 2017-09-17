@@ -295,6 +295,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
 	
 })
+.state("tab.first",{
+	 url: '/first',
+    views: {
+      'tab-zhuanti': {
+        templateUrl: 'templates/tab-first.html',
+        controller: 'firstCtrl'
+      }
+    }
+	
+})
+.state("tab.carmine",{
+	 url: '/carmine',
+	 cache:false,
+    views: {
+      'tab-mine': {
+        templateUrl: 'templates/tab-car.html',
+        controller: 'CarCtrl'
+      }
+    }
+	
+})
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/zhuanti');
 

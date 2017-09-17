@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
 			$(".cover").animate({"width":"5rem","height":"9rem",bottom:"0.95rem"},1000,function(){
 			$(this).remove()
 		})
-		},1000)
+		},2000)
 		
 	startA.set("start","first")	
 	}
@@ -70,6 +70,11 @@ spaceBetween:50,
 		
 		})
 		}
+		
+		
+		$scope.first=function(){
+			window.location="#/tab/first"
+		}
 })
 
 .controller('DesignCtrl', function($scope,design) {
@@ -124,12 +129,27 @@ $scope.changeTostyle=function(){
 }
 
 })
-.controller('ChatsCtrl',function($scope,designer){
+.controller('ChatsCtrl',function($scope,designer,goods_list){
 	$scope.goSystem=function(){
 		window.location="#/tab/chatssystem"
 	}
 	$scope.data=designer[0].arr[1].img
-	console.log($scope.data)
+	$scope.searchdata=[];
+	
+	for(var i=0;i<designer[0].arr[1].img.length;i++){
+		$scope.searchdata.push(designer[0].arr[1].img[i])
+		$scope.searchdata[i].img=goods_list[0].arr[i].src
+		$scope.searchdata[i].title=goods_list[0].arr[i].title
+	}
+   for(var j=0;j<designer[1].arr[1].img.length;j++){
+		$scope.searchdata.push(designer[1].arr[1].img[j])
+		$scope.searchdata[j+5].img=goods_list[1].arr[j].src
+		$scope.searchdata[j+5].title=goods_list[1].arr[j].title
+	}
+  
+   
+	
+console.log($scope.searchdata)
 	$scope.searchCss={
 		color:"#ffffff"
 	}
@@ -273,7 +293,9 @@ for(var i=0;i<$scope.data.length;i++){
 	$scope.order=function(){
 		window.location="#/tab/order"
 	}
-
+$scope.gocar=function(){
+	window.location="#/tab/carmine"
+}
 	$scope.goruzhu=function(){
 		window.location="#/tab/ruzhu"
 	}
@@ -1242,7 +1264,7 @@ $scope.goods_list=goods_list;
     $scope.modal = modal;
   });
 	
-	$scope.id=$stateParams.goods_id
+	
 	$scope.goback=function(){
 		window.history.back()
 	}
@@ -1342,6 +1364,11 @@ $scope.goods_list=goods_list;
 		console.log($scope.total)
 	}
 
+}).controller("FirstCtrl",function($scope,first){
+	$scope.first=first
+	$scope.goback=function(){
+		window.location="#/tab/zhuanti"
+	}
 })
 
 .directive('hideTabs', function($rootScope) {
