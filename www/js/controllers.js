@@ -1234,7 +1234,7 @@ $scope.goods_list=goods_list;
 		window.location="#/tab/car/"+id
 	}
 })
-.controller("CarCtrl",function($scope,guide,$stateParams,$ionicModal){
+.controller("CarCtrl",function($scope,guide,$stateParams,$ionicModal,$rootScope,$timeout){
 	 $ionicModal.fromTemplateUrl('templates/modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -1244,7 +1244,7 @@ $scope.goods_list=goods_list;
 	
 	$scope.id=$stateParams.goods_id
 	$scope.goback=function(){
-		window.location="#/tab/details/"+$scope.id
+		window.history.back()
 	}
 	if(!guide.get("shopping")){
 			guide.set("shopping","[]")
@@ -1252,14 +1252,98 @@ $scope.goods_list=goods_list;
 		}else{
 			$scope.shoppingdata=JSON.parse(guide.get("shopping"))
 		}
-	
+		$scope.obj={};
+		$scope.total="0.00"
 	 console.log($scope.shoppingdata)
+	 $scope.show=function(id){
 	 
+	 	$scope.modal.show(id)
+	 	$rootScope.modalvalue=id
+	 for(var i=0;i<$scope.shoppingdata.length;i++){
+	 	if($scope.shoppingdata[i].id==$rootScope.modalvalue){
+	 		$scope.obj.number=$scope.shoppingdata[i].pcount
+	 		
+	 	}
+	 }
+	 
+	 }
+	$scope.jian=function(){
+		if($scope.obj.number==1){
+			$scope.obj.number==1
+		}else{
+			$scope.obj.number--
+		}
+	}
+	$scope.jia=function(){
+		
+			$scope.obj.number++
+		
+	}
+	$scope.confirm=function(){
+		console.log($rootScope.modalvalue)
+		for(var i=0;i<$scope.shoppingdata.length;i++){
+			if($scope.shoppingdata[i].id==$rootScope.modalvalue){
+				 $scope.shoppingdata[i].pcount=$scope.obj.number
+		         guide.set("shopping",JSON.stringify($scope.shoppingdata))
+		         $scope.modal.hide()
+			}
+		}
+		      gettotal()  
+	         }
 	
-})
-.controller("addCtrl",function($scope){
 	
+	var checkall=document.getElementById("checkall")
+	var checklis=document.getElementsByClassName("checkbox")
+	$timeout(function(){
+		console.log(checklis)
+	for(var g=0;g<checklis.length;g++){
+	checklis[g].onchange=function(){
+		ischeckAll()
+		gettotal()
+	}
+	}
+	},1)
+	
+	$timeout(function(){
+	checkall.onchange=function(){
+		for(var i=0;i<checklis.length;i++){
+			checklis[i].checked=checkall.checked
+			
+		}
+		gettotal()
+	}
+	
+	},1)	
+
+	function ischeckAll(){
+  	var flag=true;
+  	for(var i=0;i<checklis.length;i++){
+  		if(checklis[i].checked==false){
+  			flag=false;
+  		}
+  	}
+	  	if(flag){
+	  		checkall.checked=true;
+	  	}else{
+	  		checkall.checked=false;
+	  	}	
+  }
+	function gettotal(){
+		var sum=0;
+		$(".checkbox").each(function(i){
+		
+			if($(".checkbox").eq(i).attr("checked")==true){
+ 				var total=$scope.shoppingdata[i].price*$scope.shoppingdata[i].pcount
+ 				sum+=Number(total)
+ 			}
+		})
+		
+		$scope.total=sum
+		console.log($scope.total)
+	}
+
 })
+
 .directive('hideTabs', function($rootScope) {
     return {
         restrict: 'A',

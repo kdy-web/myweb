@@ -57,8 +57,8 @@
  		</div>
  	</div>
  	<div class="col-10">
- 		<div style="position:relative;margin-top: 0.2rem;border-left:#e4e4e4 1px solid;height: 0.5rem;text-align: center;font-size: 0.24rem;" ng-click="modal.show()">
- 			{{shoppingdata.pcount}}<div style="position: absolute; width: 0;height: 0;border:0.1rem solid transparent;border-top:0.1rem solid #d3a800 ;top: 30%;left: 60%;"></div>
+ 		<div style="position:relative;margin-top: 0.2rem;border-left:#e4e4e4 1px solid;height: 0.5rem;text-align: center;font-size: 0.24rem;" ng-click="show(shoppingdata.id)">
+ 			<span>{{shoppingdata.pcount}}</span><div style="position: absolute; width: 0;height: 0;border:0.1rem solid transparent;border-top:0.1rem solid #d3a800 ;top: 30%;left: 60%;"></div>
  		</div>
  	</div>
  </div>
@@ -66,10 +66,10 @@
   </ion-content>
   <div class="row" style="height: 1.25rem;width:100%;background:#FFFFFF;border-top:#e4e4e4 1px solid;position: fixed;bottom:0;z-index: 999;">
   	<div class="col col-20" >
-  			<input type="checkbox" style="margin-top: 0.3rem;margin-left: 0.2rem;"/>全选
+  			<input type="checkbox" id="checkall" style="margin-top: 0.3rem;margin-left: 0.2rem;"/>全选
   	</div>
   	<div class="col col-50" style="text-align: right;">
-  	   <p style="font-size: 0.32rem;">合计:<span style="color: red;">￥0.00</span></p>
+  	   <p style="font-size: 0.32rem;">合计:<span style="color: red;">￥{{total}}</span></p>
   	   <p style="color:#bababa;font-size: 0.24rem;">不含运费</p>
   	</div>
   	<div class="col">
@@ -77,17 +77,22 @@
   	</div>
   </div>
   <script id="templates/modal.html" type="text/ng-template">
-  	 <div id="add-view" class="modal slide-in-up" ng-controller="addCtrl" style="background:rgba(0,0,0,0.5)">
+  	 <div id="add-view" class="modal slide-in-up"  style="background:rgba(0,0,0,0.5)" ng-click="modal.hide()">
    
-     <div class="list list-inset">
-					  <label class="item item-input">
-					    <input type="text" placeholder="用户名" ng-model="obj.name" ng-blur="shiqu()">
-					  </label>
-					  <label class="item item-input">
-					    <input type="password" placeholder="密码" ng-model="obj.password" ng-blur="shiqu()">
-					  </label>
+     <div  style="position: fixed;bottom: 0;z-index: 1000;width: 100%;height: 2rem;background: #FFFFFF;" ng-click="$event.stopPropagation()">
+					<div class="row" style="height: 1rem;">
+						<div  class="col">
+							数量
+						</div><div class="col">
+							<button style="background:#FFFFFF;width: 0.6rem;height: 0.6rem;border: none;border: 1px solid #8f8f8f;float: left;color: #000000;font-size: 0.32rem;" ng-click="jian()">-</button>
+							<input style="width: 0.8rem;height: 0.6rem;border: 1px solid #8f8f8f;float: left;text-align: center;" ng-model="obj.number"/>
+							<button style="background:#FFFFFF;width: 0.6rem;height: 0.6rem;border: none;border: 1px solid #8f8f8f;float: left;color: #000000;font-size: 0.32rem;" ng-click="jia()">+</button>
+						</div>
 					</div>
-					 <div class="loginButton padding"><button class="button button-block "  style="background: #242424;color: white;" ng-disabled="login" ng-click="doLogin()"> 登录 </button> </div>
+					<div style="line-height: 0.95rem;background: #2e2e2e;text-align: center;color: white;" ng-click="confirm()">确认</div>
+					
+					</div>
+					 
   
   </div>
   </script>
